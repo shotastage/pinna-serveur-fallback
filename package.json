@@ -1,0 +1,12 @@
+{
+  "name": "PINNA-shell",
+  "version": "0.0.1",
+  "description": "MUSIC ON THE MAP!",
+  "main": "index.js",
+  "repository": "https://github.com/shotastage/pinna-music.git",
+  "author": "Shota Shimazu <hornet.live.mf@gmail.com>",
+  "license": "RESTRICTED",
+  "devDependencies": {
+    "webpack": "^3.11.0"
+  }
+}
