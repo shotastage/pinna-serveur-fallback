@@ -8,12 +8,14 @@ name = "pypi"
 [packages]
 
 django = "*"
+djangorestframework = "*"
 
 
 [dev-packages]
 
 pylint = "*"
 django-mirage = "*"
+"pep8" = "*"
 
 
 [requires]
