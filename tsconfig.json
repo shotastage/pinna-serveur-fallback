@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outDir": "shell/build/dist",
+    "outDir": "shell/build/",
     "module": "esnext",
     "target": "es5",
     "lib": ["es6", "dom"],
@@ -8,7 +8,7 @@
     "allowJs": true,
     "jsx": "react",
     "moduleResolution": "node",
-    "rootDir": "shell/src",
+    "rootDir": "shell/src/",
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
@@ -19,11 +19,13 @@
   },
   "exclude": [
     "node_modules",
-    "build",
+    "shell/build",
+    "shell/dist",
     "scripts",
     "acceptance-tests",
     "webpack",
     "jest",
-    "src/setupTests.ts"
+    "src/setupTests.ts",
+    "webpack.config.js"
   ]
 }
