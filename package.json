@@ -22,8 +22,11 @@
     "@types/node": "^9.4.6",
     "@types/react": "^16.0.38",
     "@types/react-dom": "^16.0.4",
+    "awesome-typescript-loader": "^3.4.1",
     "create-react-app": "^1.5.2",
     "node-sass": "^4.7.2",
+    "source-map-loader": "^0.2.3",
+    "ts-loader": "^3.5.0",
     "typescript": "^2.7.1",
     "webpack": "^3.11.0"
   }
