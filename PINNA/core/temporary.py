@@ -10,14 +10,26 @@ This software is released under the terms of PINNA Software License, see LICENSE
 https://github.com/shotastage/pinna-music/blob/master/LICENSE
 """
 
-import os
+import tempfile
 import contextlib
+import uuid
+import os
+
+from . import fileable
 
 
 @contextlib.contextmanager
-def onDir(path):
-    current = os.getcwd()
-    os.chdir(path)
-    yield
-    os.chdir(current)
+def onTmpWorking(tmp_name):
 
+    # Directories
+    working = tmp_name + uuid.uuid4()
+    current = os.getcwd()
+    
+    # Enter
+    fileable.mkdir(working)
+    os.chdir(working)
+    yield
+
+    # Exit
+    os.chdir(current)
+    fileable.rm(working)
