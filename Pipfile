@@ -16,6 +16,8 @@ djangorestframework = "*"
 pylint = "*"
 django-mirage = "*"
 "pep8" = "*"
+mkdocs = "*"
+mkdocs-material = "*"
 
 
 [requires]
