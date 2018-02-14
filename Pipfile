@@ -18,6 +18,7 @@ django-mirage = "*"
 "pep8" = "*"
 mkdocs = "*"
 mkdocs-material = "*"
+jupyter = "*"
 
 
 [requires]
