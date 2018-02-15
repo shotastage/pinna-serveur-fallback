@@ -33,3 +33,12 @@ def onTmpWorking(tmp_name):
     # Exit
     os.chdir(current)
     fileable.rm(working)
+
+
+class FileableTemporary():
+
+    def __init__(self, name):
+        self._tmp_name = name
+
+    def getTempDirectory(self):
+        return self._tmp_name

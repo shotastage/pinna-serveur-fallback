@@ -20,4 +20,3 @@ def onDir(path):
     os.chdir(path)
     yield
     os.chdir(current)
-
