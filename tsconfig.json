@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": "shell/",
     "outDir": "shell/build/dist",
     "module": "esnext",
     "target": "es5",
