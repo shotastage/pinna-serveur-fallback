@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "outDir": "shell/build/dist",
+    "module": "esnext",
+    "target": "es5",
+    "lib": ["es6", "dom"],
+    "sourceMap": true,
+    "allowJs": true,
+    "jsx": "react",
+    "moduleResolution": "node",
+    "rootDir": ".",
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noUnusedLocals": true
+  },
+  "exclude": [
+    "bin",
+    "config",
+    "docs",
+    "node_modules",
+    "notebooks",
+    "PINNA",
+    "project",
+    "requirements",
+    "tools",
+    "shell/build/",
+    "shell/acceptance-tests",
+    "shell/webpack",
+    "shell/jest",
+    "shell/src/setupTests.ts"
+  ]
+}
