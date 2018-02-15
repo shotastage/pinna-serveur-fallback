@@ -1,6 +1,6 @@
 """
 PINNA Serveur
-os.py
+temporary.py
 
 Created by Shota Shimazu on 2018/2/14
 
@@ -19,7 +19,7 @@ from . import fileable
 
 
 @contextlib.contextmanager
-def onTmpWorking(tmp_name):
+def tmpWorking(tmp_name):
 
     # Directories
     working = tmp_name + uuid.uuid4()
@@ -35,10 +35,15 @@ def onTmpWorking(tmp_name):
     fileable.rm(working)
 
 
+
 class FileableTemporary():
+    """
+    [WIP] Fileable Advanced Temporary Working Space
+    """
 
     def __init__(self, name):
         self._tmp_name = name
+        self._tmp_dir  = os.getcwd() + self._tmp_name + uuid.uuid4()
 
     def getTempDirectory(self):
         return self._tmp_name
