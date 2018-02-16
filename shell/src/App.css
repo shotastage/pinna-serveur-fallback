@@ -1,10 +1,17 @@
+/*
+ PINNA Shell
+ App.css
+
+ Created by Shota Shimazu on 2018/2/14
+
+ Copyright (c) 2018 Shota Shimazu All Rights Reserved.
+
+ This software is released under the terms of PINNA Software License, see LICENSE for detail.
+ https://github.com/shotastage/pinna-music/blob/master/LICENSE
+*/
+
 .App {
   text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
 }
 
 .App-header {
