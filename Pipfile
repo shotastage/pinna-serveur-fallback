@@ -17,11 +17,11 @@ whitenoise = "*"
 [dev-packages]
 
 pylint = "*"
-django-mirage = "*"
 "pep8" = "*"
 mkdocs = "*"
 mkdocs-material = "*"
 jupyter = "*"
+django-mirage = "*"
 
 
 [requires]

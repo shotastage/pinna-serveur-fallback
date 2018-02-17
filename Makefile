@@ -1,3 +1,7 @@
+#
+# This makefile is not for building!
+#
+
 clean:
 	@echo "Cleaning source tree..."
 	rm -rf ./shell/node_modules/

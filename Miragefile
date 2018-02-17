@@ -1,4 +1,4 @@
-miragefile: v0.0.1
+miragefile: v0.0.3
 
 project:
     name: PINNA
@@ -10,6 +10,7 @@ project:
 
     django:
         path: PINNA
+        module: PINNA
         package: pipenv
         database: PostgreSQL
 
@@ -25,13 +26,3 @@ project:
         start_year: 2018
         copyrightors:
             - Shota Shimazu
-
-
-build:
-    - echo "Build script is here."
-
-clean:
-    - echo "Clean script is here."
-
-test:
-    - echo "Test script is here."
