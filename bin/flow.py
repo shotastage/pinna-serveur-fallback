@@ -28,8 +28,7 @@ class Workflow():
 
     def additional_init_(self): pass
 
-    def constructor(self):
-        self.additional_init_()
+    def constructor(self): self.additional_init_()
 
     def get_first_arg(self):
         try:
@@ -40,14 +39,11 @@ class Workflow():
     def register(self, flow):
         self.Stepflows.append(flow)
     
-    def main(self):
-        # Main flow struct
-        pass
+    def main(self): pass
 
     def run(self):
         self.main()
 
-        # Flow
         for flow in self.Stepflows:
             try:
                 flow.run()

@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'soundlab.apps.SoundlabConfig',
+    'lab.apps.LabConfig',
     'core.apps.CoreConfig',
     'ping.apps.PingConfig',
     'api.apps.ApiConfig',
