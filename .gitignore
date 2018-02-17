@@ -1,6 +1,10 @@
 #
 # .gitignore for Mirage project 
-# Version 2018/2/14
+#
+#  Version 2018/2/17
+#
+# Based on github useful .gitignore collections
+# https://github.com/github/gitignore
 #
 
 #########################################################
@@ -54,6 +58,7 @@ nosetests.xml
 coverage.xml
 *.cover
 .hypothesis/
+.pytest_cache/
 
 # Translations
 *.mo
@@ -181,81 +186,37 @@ typings/
 
 
 #########################################################
-## Mirage                                              ##
+## Django Ignore                                       ##
 #########################################################
 
-.mirage/
+*.pyc
+*.sqlite3
+
+
+#########################################################
+## Mirage Ignore                                       ##
+#########################################################
+
+# Previous workspace & configuration file
 .djc/
+DjFile.secret
+
+# Current workspace & configuration file
+.mirage/
 Miragefile.addon
 Miragefile.secret
 
 
 #########################################################
-## Front-end ignore                                    ##
+## Front-end Ignore                                    ##
 #########################################################
 
 shell/dist/
+shell/build/
 
 
 #########################################################
-## Editor Settings                                     ##
+## Project Ignore                                      ##
 #########################################################
 
 .vscode/
-
-
-
-#########################################################
-## Angular                                             ##
-#########################################################
-
-# See http://help.github.com/ignore-files/ for more about ignoring files.
-
-# compiled output
-/dist
-/dist-server
-/tmp
-/out-tsc
-
-# dependencies
-/node_modules
-
-# IDEs and editors
-/.idea
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
-
-# IDE - VSCode
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-
-# misc
-/.sass-cache
-/connect.lock
-/coverage
-/libpeerconnection.log
-npm-debug.log
-testem.log
-/typings
-
-# e2e
-/e2e/*.js
-/e2e/*.map
-
-# System Files
-.DS_Store
-Thumbs.db
-
-
-#########################################################
-## Project Ignorances                                  ##
-#########################################################
-
-*.sqlite3
