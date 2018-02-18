@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'notify.apps.NotifyConfig',
     'lab.apps.LabConfig',
     'core.apps.CoreConfig',
     'ping.apps.PingConfig',
