@@ -84,7 +84,7 @@ DATABASES = {
         'NAME': 'pinna_gitlab_ci',
         'USER': 'gitlab_ci',
         'PASSWORD': 'test_passwd_for_ci',
-        'HOST': 'localhost',
+        'HOST': 'postgres',
         'PORT': '5432',
     }
 }

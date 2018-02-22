@@ -1,4 +1,4 @@
-image: ubuntu:16.10
+image: ubuntu:16.04
 
 services:
   - postgres:latest
@@ -10,21 +10,21 @@ variables:
 
 # Build Stages
 stages:
-  - Build
+  - Test
 
 
 # Django Build
 build:
-  stage: Build
+  stage: Test
   before_script:
-    - apt-get update -y
-    - apt-get install -y python3.6 python3-pip python3-dev
+    - apt-get update -qq && apt-get install -y -qq python3.6 python3-pip python3-dev
     - pip3 install -r ./requirements/locked.txt
 
   script:
     - python --version
     - mg v
     - cd ./PINNA
+    - mg db:migrate
     - python3 manage.py test
 
   tags:
