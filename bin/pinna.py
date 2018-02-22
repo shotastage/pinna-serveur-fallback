@@ -12,3 +12,9 @@ https://github.com/shotastage/pinna-music/blob/master/LICENSE
 
 import os
 import sys
+
+def main():
+  print("PINNA CLI is now under construction!")
+  
+if __name__ = "__main__":
+  main()
