@@ -17,7 +17,7 @@ stages:
 build:
   stage: Build
   before_script:
-    - apt-get update -qy
+    - apt-get update -y
     - apt-get install -y python3.6 python3-pip python3-dev
     - pip3 install -r ./requirements/locked.txt
 
