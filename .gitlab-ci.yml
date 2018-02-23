@@ -26,7 +26,8 @@ build:
     - python3 --version
     - mg v
     - cd ./PINNA
-    - mg db:migrate
+    # - mg db:migrate
+    - python3 manage.py migrate
     - python3 manage.py test
 
   tags:
