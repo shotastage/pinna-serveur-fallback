@@ -15,3 +15,16 @@ from .common import *
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
+# Database
+# https://docs.djangoproject.com/en/2.0/ref/settings/#databases
+DATABASES = {
+    'default': {
+         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+         'NAME': 'pinna_gitlab_ci',
+         'USER': 'gitlab_ci',
+         'PASSWORD' : 'test_password_for_ci',
+         'HOST' : 'postgres',
+         'PORT' : 5432,
+     }
+ }
