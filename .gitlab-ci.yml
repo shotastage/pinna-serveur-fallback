@@ -22,7 +22,7 @@ build:
     - pip3 install -r ./requirements/locked.txt
 
   script:
-    - python --version
+    - python3 --version
     - mg v
     - cd ./PINNA
     - mg db:migrate
