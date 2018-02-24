@@ -31,6 +31,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'user.apps.UserConfig',
+    'grant.apps.GrantConfig',
+    'message.apps.MessageConfig',
     'notify.apps.NotifyConfig',
     'lab.apps.LabConfig',
     'core.apps.CoreConfig',
