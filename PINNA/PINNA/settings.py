@@ -13,13 +13,14 @@ https://github.com/shotastage/pinna-music/blob/master/LICENSE
 import os
 from .environment import production
 from .environment import development
-from .environment import integration
+from .environment import ci
 
 
 try:
     MODE = os.environ["PINNA_RUNNING_MODE"]
 except:
     MODE = "devel"
+
 
 if MODE == "devel":
     settings = development
