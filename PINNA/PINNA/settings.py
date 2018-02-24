@@ -1,4 +1,6 @@
 """
+    'grant.apps.GrantConfig',
+    'message.apps.MessageConfig',
 PINNA
 settings.py
 
