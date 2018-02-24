@@ -16,16 +16,16 @@ from django.db import models
 
 
 class User(models.Model):
-  user_name = models.CharField()
-  email     = models.CharField()
+  user_name = models.CharField(max_length = 255)
+  email     = models.CharField(max_length = 255)
 
 
 class UserProfile(User):
-  first_name  = models.CharField()
-  last_name   = models.CharField()
-  middle_name = models.CharField()
-  gender      = models.IntegerField()
-  age         = models.IntegerField()
-  country     = models.CharField()
-  phone       = models.CharField()
-  address     = models.CharField()
+  first_name  = models.CharField(max_length = 255)
+  last_name   = models.CharField(max_length = 255)
+  middle_name = models.CharField(max_length = 255)
+  gender      = models.IntegerField(max_length = 255)
+  age         = models.IntegerField(max_length = 255)
+  country     = models.CharField(max_length = 255)
+  phone       = models.CharField(max_length = 255)
+  address     = models.CharField(max_length = 255)
