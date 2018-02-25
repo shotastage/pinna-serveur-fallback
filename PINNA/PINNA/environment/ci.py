@@ -23,6 +23,17 @@ DEBUG = True
 
 DATABASES = {
     'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'TEST': {
+            'NAME': os.path.join(BASE_DIR, 'test.sqlite3'),
+        },
+    }
+}
+
+""" backup
+DATABASES = {
+    'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'pinna_gitlab_ci',
         'USER': 'gitlab_ci',
@@ -34,3 +45,4 @@ DATABASES = {
         },
     }
 }
+"""
