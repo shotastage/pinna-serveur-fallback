@@ -23,7 +23,11 @@ DEBUG = True
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'dbp90ec1v51e12',
+        'USER': 'frvselsvkmqtbm',
+        'PASSWORD': '4712ce5560eba837a35b4d1e755a352b706e6b41d32fa8fa2a3f0a66eeec9599',
+        'HOST': 'ec2-107-22-236-252.compute-1.amazonaws.com',
+        'PORT': 5432,
     }
 }
