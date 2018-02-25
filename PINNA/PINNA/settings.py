@@ -25,7 +25,7 @@ except:
 if MODE == "devel":
     settings = development
 elif MODE == "ci":
-    settings = integration
+    settings = ci
 else:
     settings = production
 
