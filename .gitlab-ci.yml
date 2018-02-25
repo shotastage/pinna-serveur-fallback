@@ -1,12 +1,23 @@
 image: ubuntu:16.04
 
 services:
-  - postgres:latest
+- name: postgres:latest
+  alias: PS_1
+- name: postgres:latest
+  alias: PS_2
+
 
 variables:
-  POSTGRES_DB: pinna_gitlab_ci
-  POSTGRES_USER: gitlab_ci
-  POSTGRES_PASSWORD: "test_passwd_for_ci"
+  PS_1_DB: pinna_gitlab_ci
+  PS_1_USER: gitlab_ci
+  PS_1_PASSWORD: "test_passwd_for_ci"
+  PS_1_HOST: "postgres"
+
+  PS_2_DB: pinna_gitlab_ci_testing
+  PS_2_USER: gitlab_ci
+  PS_2_PASSWORD: "test_passwd_for_ci"
+  PS_2_HOST: "postgres"
+
 
 # Build Stages
 stages:
@@ -26,6 +37,10 @@ build:
     - python3 --version
     - mg v
     - cd ./PINNA
+    - cd ./PINNA
+    - rm -f test.sqlite3
+    - rm -f db.sqlite3
+    - cd ..
     # - mg db:migrate
     - python3 manage.py migrate
     - python3 manage.py test

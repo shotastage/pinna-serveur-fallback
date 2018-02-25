@@ -13,7 +13,7 @@ https://github.com/shotastage/pinna-music/blob/master/LICENSE
 import os
 from .environment import production
 from .environment import development
-from .environment import integration
+from .environment import ci
 
 
 try:
@@ -21,10 +21,13 @@ try:
 except:
     MODE = "devel"
 
+
 if MODE == "devel":
+    print("Using development.py setting")
     settings = development
 elif MODE == "ci":
-    settings = integration
+    print("Using ci.py setting")
+    settings = ci
 else:
     settings = production
 
