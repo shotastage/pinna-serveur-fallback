@@ -1,5 +1,7 @@
 ![PINNA](./docs/assets/logo.png)
 
+[![pipeline status](https://hplab.work/pinna-music/pinna-music/badges/master/pipeline.svg)](https://hplab.work/pinna-music/pinna-music/commits/master)
+[![coverage report](https://hplab.work/pinna-music/pinna-music/badges/master/coverage.svg)](https://hplab.work/pinna-music/pinna-music/commits/master)
 
 PINNA is global music mapping application or integrated musicological analysis platform mode with Django on Python.
 It provides sophisticated UI and efficient huge data management for musicological analysis.
