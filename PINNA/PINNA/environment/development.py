@@ -13,7 +13,6 @@ https://github.com/shotastage/pinna-music/blob/master/LICENSE
 import os
 from .common import *
 
-print("Using development.py setting")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 

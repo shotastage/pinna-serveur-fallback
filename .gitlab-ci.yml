@@ -10,12 +10,15 @@ variables:
   PS_1_DB: pinna_gitlab_ci
   PS_1_USER: gitlab_ci
   PS_1_PASSWORD: "test_passwd_for_ci"
+  PS_1_HOST: "postgres"
 
   PS_2_DB: pinna_gitlab_ci_testing
   PS_2_USER: gitlab_ci
   PS_2_PASSWORD: "test_passwd_for_ci"
+  PS_2_HOST: "postgres"
 
-  
+
+
 # Build Stages
 stages:
   - Test

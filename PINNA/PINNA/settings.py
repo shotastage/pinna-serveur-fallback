@@ -23,8 +23,10 @@ except:
 
 
 if MODE == "devel":
+    print("Using development.py setting")
     settings = development
 elif MODE == "ci":
+    print("Using ci.py setting")
     settings = ci
 else:
     settings = production
