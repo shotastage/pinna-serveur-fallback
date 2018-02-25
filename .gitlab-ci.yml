@@ -37,6 +37,10 @@ build:
     - python3 --version
     - mg v
     - cd ./PINNA
+    - cd ./PINNA
+    - rm test.sqlite3
+    - rm db.sqlite3
+    - cd ..
     # - mg db:migrate
     - python3 manage.py migrate
     - python3 manage.py test
