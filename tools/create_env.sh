@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-conda create --name pinnamusic
+conda create --name pinna

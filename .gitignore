@@ -222,3 +222,4 @@ shell/build/
 .vscode/
 .idea/
 site/
+api_site/
