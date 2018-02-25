@@ -13,6 +13,7 @@ gunicorn = "*"
 whitenoise = "*"
 "apns2" = "*"
 "psycopg2-binary" = "*"
+django-filter = "*"
 
 
 [dev-packages]
@@ -23,6 +24,7 @@ mkdocs = "*"
 mkdocs-material = "*"
 jupyter = "*"
 django-mirage = "*"
+django-debug-toolbar = "*"
 
 
 [requires]
