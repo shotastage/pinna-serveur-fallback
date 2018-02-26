@@ -1,6 +1,7 @@
 # Build Stages
 stages:
-  - Test
+  - Django
+  - Node.js
 
 
 # Django Test on Python 3.6
@@ -24,7 +25,7 @@ django:3.6:
     PS_2_PASSWORD: "test_passwd_for_ci"
     PS_2_HOST: "postgres"
 
-  stage: Test
+  stage: Django
   before_script:
     - pip install --upgrade pip
     - pip install -r ./requirements/locked.txt
@@ -76,7 +77,7 @@ django:3.7:
     PS_2_PASSWORD: "test_passwd_for_ci"
     PS_2_HOST: "postgres"
 
-  stage: Test
+  stage: Django
   before_script:
     - pip install --upgrade pip
     - pip install -r ./requirements/locked.txt
@@ -110,7 +111,7 @@ django:3.7:
 
 node:9.6.1:
   image: node:9.6.1
-  stage: Test
+  stage: Node.js
 
   before_script:
     - npm install -g yarn
@@ -119,10 +120,13 @@ node:9.6.1:
     - cd shell
     - yarn install
     - yarn run build
+  
+  tags:
+    - node
 
 node:8.9.4:
   image: node:8.9.4
-  stage: Test
+  stage: Node.js
 
   before_script:
     - npm install -g yarn
@@ -131,6 +135,8 @@ node:8.9.4:
     - cd shell
     - yarn install
     - yarn run build
-
+  
+  tags:
+    - node
 
   allow_failure: true
