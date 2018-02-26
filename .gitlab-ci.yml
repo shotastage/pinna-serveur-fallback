@@ -7,9 +7,9 @@ stages:
 test:3.6:
   image: python:3.6.4
   services:
-    - name: postgres:latest
+  - name: postgres:latest
     alias: PS_1
-    - name: postgres:latest
+  - name: postgres:latest
     alias: PS_2
 
 
