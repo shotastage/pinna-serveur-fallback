@@ -23,3 +23,8 @@ pyclean:
 apib:
 	mkdir api_site
 	snowboard html -o ./api_site/index.html ./blueprints/v1.apib
+
+requirement:
+	@echo "Generating locked.txt ..."
+	rm -f ./requirements/locked.txt
+	pipenv lock -r >> ./requirements/locked.txt
