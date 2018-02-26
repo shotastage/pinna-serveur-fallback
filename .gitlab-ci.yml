@@ -1,31 +1,81 @@
-image: python:3.6.4
-
-services:
-- name: postgres:latest
-  alias: PS_1
-- name: postgres:latest
-  alias: PS_2
-
-
-variables:
-  PS_1_DB: pinna_gitlab_ci
-  PS_1_USER: gitlab_ci
-  PS_1_PASSWORD: "test_passwd_for_ci"
-  PS_1_HOST: "postgres"
-
-  PS_2_DB: pinna_gitlab_ci_testing
-  PS_2_USER: gitlab_ci
-  PS_2_PASSWORD: "test_passwd_for_ci"
-  PS_2_HOST: "postgres"
-
-
 # Build Stages
 stages:
   - Test
 
 
-# Django Build
-build:
+# Django Test on Python 3.6
+test:3.6:
+  image: python:3.6.4
+  services:
+    - name: postgres:latest
+    alias: PS_1
+    - name: postgres:latest
+    alias: PS_2
+
+
+  variables:
+    PS_1_DB: pinna_gitlab_ci
+    PS_1_USER: gitlab_ci
+    PS_1_PASSWORD: "test_passwd_for_ci"
+    PS_1_HOST: "postgres"
+
+    PS_2_DB: pinna_gitlab_ci_testing
+    PS_2_USER: gitlab_ci
+    PS_2_PASSWORD: "test_passwd_for_ci"
+    PS_2_HOST: "postgres"
+
+  stage: Test
+  before_script:
+    - pip install --upgrade pip
+    - pip install -r ./requirements/locked.txt
+    - pip install django-mirage
+
+  script:
+    - python --version
+    - mg v
+    - cd ./PINNA
+    - cd ./PINNA
+    - rm -f test.sqlite3
+    - rm -f db.sqlite3
+    - cd ..
+    # - mg db:migrate
+    - python manage.py migrate
+    - python manage.py test
+
+  tags:
+    - django
+
+  except:
+    - features/doc
+    - features/artworks
+    - features/config
+    - features/editor_utils
+    - features/tools
+    - features/gitlab
+
+
+
+# Django Test on Python 3.7
+test:3.7:
+  image: python:3.6.4
+  services:
+    - name: postgres:latest
+    alias: PS_1
+    - name: postgres:latest
+    alias: PS_2
+
+
+  variables:
+    PS_1_DB: pinna_gitlab_ci
+    PS_1_USER: gitlab_ci
+    PS_1_PASSWORD: "test_passwd_for_ci"
+    PS_1_HOST: "postgres"
+
+    PS_2_DB: pinna_gitlab_ci_testing
+    PS_2_USER: gitlab_ci
+    PS_2_PASSWORD: "test_passwd_for_ci"
+    PS_2_HOST: "postgres"
+
   stage: Test
   before_script:
     - pip install --upgrade pip
