@@ -109,6 +109,9 @@ django:3.7:
 
 
 node:9.6.1:
+  image: node:9.6.1
+  stage: Test
+
   before_script:
     - npm install -g yarn
 
@@ -118,12 +121,16 @@ node:9.6.1:
     - yarn run build
 
 node:8.9.4:
+  image: node:8.9.4
+  stage: Test
+
   before_script:
+    - npm install -g yarn
+
+  script:
     - cd shell
     - yarn install
     - yarn run build
 
-  script:
-    - echo "Node.js"
 
   allow_failure: true
