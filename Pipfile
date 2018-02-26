@@ -14,6 +14,8 @@ whitenoise = "*"
 "apns2" = "*"
 "psycopg2-binary" = "*"
 django-filter = "*"
+djangorestframework-simplejwt = "*"
+coreapi = "*"
 
 
 [dev-packages]
