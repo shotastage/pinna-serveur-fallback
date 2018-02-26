@@ -57,7 +57,7 @@ test:3.6:
 
 # Django Test on Python 3.7
 test:3.7:
-  image: python:3.6.4
+  image: python:3.7.0b1-stretch
   services:
   - name: postgres:latest
     alias: PS_1
@@ -104,3 +104,5 @@ test:3.7:
     - features/editor_utils
     - features/tools
     - features/gitlab
+
+  allow_failure: true
