@@ -59,9 +59,9 @@ test:3.6:
 test:3.7:
   image: python:3.6.4
   services:
-    - name: postgres:latest
+  - name: postgres:latest
     alias: PS_1
-    - name: postgres:latest
+  - name: postgres:latest
     alias: PS_2
 
 
