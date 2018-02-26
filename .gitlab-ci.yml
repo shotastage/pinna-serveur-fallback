@@ -4,7 +4,7 @@ stages:
 
 
 # Django Test on Python 3.6
-test:3.6:
+django:3.6:
   image: python:3.6.4
   services:
   - name: postgres:latest
@@ -56,7 +56,7 @@ test:3.6:
 
 
 # Django Test on Python 3.7
-test:3.7:
+django:3.7:
   image: python:3.7.0b1-stretch
   services:
   - name: postgres:latest
@@ -104,5 +104,26 @@ test:3.7:
     - features/editor_utils
     - features/tools
     - features/gitlab
+
+  allow_failure: true
+
+
+node:9.6.1:
+  before_script:
+    - npm install -g yarn
+
+  script:
+    - cd shell
+    - yarn install
+    - yarn run build
+
+node:8.9.4:
+  before_script:
+    - cd shell
+    - yarn install
+    - yarn run build
+
+  script:
+    - echo "Node.js"
 
   allow_failure: true
