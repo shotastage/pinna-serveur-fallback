@@ -11,5 +11,11 @@ https://github.com/shotastage/pinna-music/blob/master/LICENSE
 """
 
 from django.test import TestCase
-
+from grant.models import DeviceCredential
 # Create your tests here.
+
+
+class DeviceCredentialModelTests(TestCase):
+    def test_is_empty(self):
+        obj = DeviceCredential.objects.all()
+        self.assertEqual(obj.count(), 0)

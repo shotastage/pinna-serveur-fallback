@@ -27,5 +27,6 @@ class DeviceCredential(models.Model):
   def public_credential(self):
     return secrets.token_hex()
 
+
   def certificate(self, credential):
     return secrets.compare_digest(credential, self.credential)

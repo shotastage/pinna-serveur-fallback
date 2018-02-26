@@ -13,3 +13,7 @@ https://github.com/shotastage/pinna-music/blob/master/LICENSE
 from django.contrib import admin
 
 # Register your models here.
+
+from .models import DeviceCredential
+
+admin.site.register(DeviceCredential)
