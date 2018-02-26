@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'serverless.apps.ServerlessConfig',
     'user.apps.UserConfig',
     'grant.apps.GrantConfig',
     'message.apps.MessageConfig',
