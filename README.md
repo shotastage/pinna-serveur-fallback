@@ -7,7 +7,7 @@ PINNA is global music mapping application or integrated musicological analysis p
 It provides sophisticated UI and efficient huge data management for musicological analysis.
 
 # 🎸  Technologies
-![PINNA](./docs/assets/technologies.png)
+![Technologies](./docs/assets/technologies.png)
 
 PINNA stands on a lot of modern technologies such as Django, Kurbonates.
 

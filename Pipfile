@@ -7,7 +7,7 @@ name = "pypi"
 
 [packages]
 
-django = "*"
+Django = "*"
 djangorestframework = "*"
 gunicorn = "*"
 whitenoise = "*"
@@ -26,7 +26,6 @@ mkdocs = "*"
 mkdocs-material = "*"
 jupyter = "*"
 django-mirage = "*"
-django-debug-toolbar = "*"
 
 
 [requires]
