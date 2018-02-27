@@ -1,28 +1,37 @@
-miragefile: v0.0.3
 
-project:
-    name: PINNA
-    version: 0.0.1
-    author: Shota Shimazu <hornet.live.mf@gmail.com>
-    git: https://github.com/shotastage/pinna-music.git
-    license: RESTRICTED
-    description: MUSIC ON THE MAP!
+{
+    "miragefile": "v0.0.4",
+    
+    "project": {
+        "name": "PINNA",
+        "version": "0.0.1",
+        "author": "Shota Shimazu <hornet.live.mf@gmail.com>",
+        "git": "git@hplab.work:pinna-music/pinna-music.git",
+        "license": "restricted",
+        "description": "MUSIC ON THE MAP!",
 
-    django:
-        path: PINNA
-        module: PINNA
-        package: pipenv
-        database: PostgreSQL
+        "django": {
+            "path": "PINNA",
+            "module": "PINNA",
+            "package": "pipenv",
+            "database": "PostgreSQL"
+        },
 
-    frontend:
-        path: shell
-        package: yarn
-        builder: webpack
+        "frontend": {
+            "path": "shell",
+            "package": "yarn",
+            "builder": "webpack"
+        },
 
-    workspace:
-        path: .mirage
+        "workspace": {
+            "path": ".mirage"
+        },
 
-    copyright:
-        start_year: 2018
-        copyrightors:
-            - Shota Shimazu
+        "copyright": {
+            "start_year": 2018,
+            "copyrightors": [
+                "Shota Shimazu"
+            ]
+        }
+    }
+}
