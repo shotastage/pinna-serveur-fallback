@@ -15,14 +15,21 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.conf.urls import include, url
+from django.conf.urls import include, re_path
+from django.views import generic
 from django.urls import path
 from rest_framework.schemas import get_schema_view
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url('^api/$', get_schema_view()),
-    url('^api/auth/', include('grant.urls'))
+
+    # Routing for web UI
+    re_path(r'^$', generic.RedirectView.as_view(url = '/pages/', permanent = False)),
+    re_path('^pages/', include('pages.urls')),
+
+    # Routing for Authentication
+    re_path('^api/$', get_schema_view()),
+    re_path('^api/auth/', include('grant.urls'))
     #url(r'^api-auth/', include('rest_framework.urls'))
 ]
