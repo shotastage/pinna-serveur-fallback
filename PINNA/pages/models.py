@@ -12,4 +12,22 @@ https://hplab.work/pinna-music/pinna-music/blob/master/LICENSE
 
 from django.db import models
 
-# Create your models here.
+
+
+class ServingPages(models.Model):
+  site_id       = models.UUIDField(primary_key = True)
+  template_path = models.FilePathField()
+  domain        = models.CharField(max_length = 255)
+  sub_path      = models.CharField(max_length = 255)
+  parent        = models.UUIDField()
+  published     = models.BooleanField()
+  date          = models.DateTimeField()
+
+
+class LandingPage(ServingPages):
+  title: models.CharField(max_length = 255)
+
+
+class DocumentPage(ServingPages):
+  version       = models.CharField(max_length = 255)
+  document_type = models.CharField(max_length = 255)
