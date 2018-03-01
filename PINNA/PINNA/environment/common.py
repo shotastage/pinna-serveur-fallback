@@ -15,6 +15,7 @@ from pathlib import Path, PurePath
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 PROJ_DIR = PurePath(BASE_DIR).parent.parent
 
 
@@ -85,7 +86,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(PROJ_DIR, "shell", "build")
+            os.path.join(PROJ_DIR, "shell", "templates")
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -155,5 +156,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIR = os.path.join(PROJ_DIR, "shell", "build", "static")
+STATIC_ROOT = os.path.join(PROJ_DIR, "shell", "build")
 
+STATICFILES_DIRS = [
+    os.path.join(PROJ_DIR, "shell", "build")
+]
