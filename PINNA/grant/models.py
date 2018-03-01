@@ -24,7 +24,7 @@ class DeviceCredential(models.Model):
   os          = models.CharField(max_length = 255)
 
 
-  def public_credential(self):
+  def publish_credential(self):
     return secrets.token_hex()
 
 
