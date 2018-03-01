@@ -9,7 +9,8 @@ PINNA is global music mapping application or integrated musicological analysis p
 # 🎸  Technologies
 ![Technologies](./docs/assets/technologies.png)
 
-PINNA stands on a lot of modern technologies such as Django, Kurbonates.
+PINNA is composed on many advanced technologies such as Django, Kurbonates.
+These technologies enables more efficient development and creating scalable production environments to us. We adopt any technologies even if it doesn’t get enough stability to make it stable if it has adequate adoption example.
 
 # ©  Copyrights & License
 This software is licensed under the PINNA Cloud System License, see LICENSE in detail.
