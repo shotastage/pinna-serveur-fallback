@@ -1,4 +1,6 @@
 ![PINNA](./docs/assets/logo.png)
+![Using](./docs/assets/usings.png)
+
 
 [![pipeline status](https://hplab.work/pinna-music/pinna-music/badges/master/pipeline.svg)](https://hplab.work/pinna-music/pinna-music/commits/master)
 [![coverage report](https://hplab.work/pinna-music/pinna-music/badges/master/coverage.svg)](https://hplab.work/pinna-music/pinna-music/commits/master)
