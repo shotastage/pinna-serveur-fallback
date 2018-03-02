@@ -25,8 +25,8 @@ pylint = "*"
 mkdocs = "*"
 mkdocs-material = "*"
 jupyter = "*"
-django-mirage = "*"
 flask = "*"
+django-mirage = "*"
 
 
 [requires]
