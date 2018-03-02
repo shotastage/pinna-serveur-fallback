@@ -356,9 +356,9 @@
         },
         "django-mirage": {
             "hashes": [
-                "sha256:29df297e7eca209ea028969c41680ffbdb5f3787e420a29331986b86d08b4abe"
+                "sha256:fdec7d912923f3f9f252d910bfb3ecfc338916c99fed824eec2b90d244a537fd"
             ],
-            "version": "==0.0.22"
+            "version": "==0.0.23"
         },
         "entrypoints": {
             "hashes": [
@@ -394,6 +394,7 @@
                 "sha256:fcc6d46f08c3c4de7b15ae1c426e15be1b7932bcda9d83ce1a4304e8c1129df3",
                 "sha256:51c158a6c8b899898d1c91c6b51a34110196815cc905f9be0fa5878e19355608"
             ],
+            "markers": "python_version >= '3.3'",
             "version": "==6.2.1"
         },
         "ipython-genutils": {
