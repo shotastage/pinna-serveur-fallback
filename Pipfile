@@ -16,6 +16,8 @@ whitenoise = "*"
 django-filter = "*"
 djangorestframework-simplejwt = "*"
 coreapi = "*"
+pyjwt = "*" # For apple music
+cryptography = "*" # For apple music
 
 
 [dev-packages]
