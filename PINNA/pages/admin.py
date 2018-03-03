@@ -13,3 +13,11 @@ https://hplab.work/pinna-music/pinna-music/blob/master/LICENSE
 from django.contrib import admin
 
 # Register your models here.
+from .models import ServingPages, SimpleTextPages, RichContentsPages, LandingPage, LicensePage, HelpPages
+
+admin.site.register(ServingPages)
+admin.site.register(SimpleTextPages)
+admin.site.register(RichContentsPages)
+admin.site.register(LandingPage)
+admin.site.register(LicensePage)
+admin.site.register(HelpPages)

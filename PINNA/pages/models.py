@@ -16,7 +16,7 @@ from django.db import models
 
 class ServingPages(models.Model):
   site_id       = models.UUIDField(primary_key = True)
-  template_path = models.FilePathField()
+  template_path = models.FileField(upload_to = "files")
   domain        = models.CharField(max_length = 255, default = "ServingPage")
   sub_path      = models.CharField(max_length = 255)
   parent        = models.UUIDField(null = True)
@@ -32,6 +32,7 @@ class ServingPages(models.Model):
 
   def get_template_path(self):
     return self.template_path
+
 
 
 class SimpleTextPages(ServingPages):
