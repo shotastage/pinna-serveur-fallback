@@ -31,6 +31,16 @@ DATABASES = {
     }
 }
 
+
+# Cache
+# https://docs.djangoproject.com/en/2.0/ref/settings/#caches
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+    }
+}
+
 """ backup
 DATABASES = {
     'default': {
