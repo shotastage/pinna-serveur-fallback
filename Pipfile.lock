@@ -261,10 +261,10 @@
         },
         "pyjwt": {
             "hashes": [
-                "sha256:a4e5f1441e3ca7b382fd0c0b416777ced1f97c64ef0c33bfa39daf38505cfd2f",
-                "sha256:500be75b17a63f70072416843dc80c8821109030be824f4d14758f114978bae7"
+                "sha256:b752500cafd4df9f0dc6efe9063603e36a4e1a5c24fee48234d2949b6606aa59",
+                "sha256:9c3016e4a292151c5396e25cc0c28c4e1cdf13fa19118eb84f500f9670e3f628"
             ],
-            "version": "==1.5.3"
+            "version": "==1.6.0"
         },
         "pytz": {
             "hashes": [
@@ -356,9 +356,9 @@
         },
         "django-mirage": {
             "hashes": [
-                "sha256:fdec7d912923f3f9f252d910bfb3ecfc338916c99fed824eec2b90d244a537fd"
+                "sha256:779f43dee49e54aec4c240130fde27bbc2feec7c2f47e7fdee156d13f553355d"
             ],
-            "version": "==0.0.23"
+            "version": "==0.0.24"
         },
         "entrypoints": {
             "hashes": [
@@ -657,10 +657,10 @@
         },
         "pymdown-extensions": {
             "hashes": [
-                "sha256:2da4ccbc4c9893a02bb9c5d03a88496a5813fbb191b14f895713fa79af8441a7",
-                "sha256:d222d494031bb4f8e528dfd158955428018d5fe985ba14e1daa89c4d484371ff"
+                "sha256:384405d91b2802657ce5faf0a1803570a80787a40fb647fb76d5dc5493426365",
+                "sha256:f2343ab3d8ce45d600de62490ee8299bfd03fbd1a6997301480d58a0c3de44ae"
             ],
-            "version": "==4.8"
+            "version": "==4.9"
         },
         "python-dateutil": {
             "hashes": [
