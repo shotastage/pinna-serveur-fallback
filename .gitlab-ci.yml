@@ -11,6 +11,7 @@ Installation:
   stage: Environment
 
   before_script:
+    - apt-get update
     - apt-get install -y curl
     - sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
     - echo "export PATH='$(brew --prefix)/bin:$(brew --prefix)/sbin'":'"$PATH"' >>~/.bash_profile
