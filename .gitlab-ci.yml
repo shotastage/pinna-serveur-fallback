@@ -11,9 +11,9 @@ Installation:
   stage: Environment
 
   before_script:
+    - apt-get install -y curl
     - sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
     - echo "export PATH='$(brew --prefix)/bin:$(brew --prefix)/sbin'":'"$PATH"' >>~/.bash_profile
-    - exec bash -l
     - brew install python pyenv redis
 
   script:
