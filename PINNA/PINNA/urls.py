@@ -24,11 +24,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     # Routing for web UI
-    path(r'^$', generic.RedirectView.as_view(url = '/pages/', permanent = False)),
-    path('^pages/', include('pages.urls')),
+    path("", generic.RedirectView.as_view(url = '/pages/', permanent = False)),
+    path("pages/", include('pages.urls')),
 
     # Routing for Authentication
-    path('^api/$', get_schema_view()),
-    path('^api/auth/', include('grant.urls'))
+    path("api/", get_schema_view()),
+    path("api/auth/", include('grant.urls'))
     #url(r'^api-auth/', include('rest_framework.urls'))
 ]

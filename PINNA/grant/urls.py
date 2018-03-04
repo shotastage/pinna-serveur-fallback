@@ -17,11 +17,11 @@ from .views import DeviceCredentialCreateView, DeviceCredentialDestroyView
 
 urlpatterns = [
     # Rootings for JWT auth
-    path(r'^jwt/create/', TokenObtainPairView.as_view(), name='jwt-create'),
-    path(r'^jwt/refresh/', TokenRefreshView.as_view(), name='jwt-refresh'),
-    path(r'^jwt/verify/$', TokenVerifyView.as_view(), name='token_verify'),
+    path("jwt/create/", TokenObtainPairView.as_view(), name='jwt-create'),
+    path("jwt/refresh/", TokenRefreshView.as_view(), name='jwt-refresh'),
+    path("jwt/verify/", TokenVerifyView.as_view(), name='token_verify'),
 
     # Routings for DCA (Device Credential Auth)
-    path(r'^dca/create/', DeviceCredentialCreateView.as_view(), name='jwt-create'),
-    path(r'^dca/destroy/', DeviceCredentialDestroyView.as_view(), name='jwt-create'),
+    path("dca/create/", DeviceCredentialCreateView.as_view(), name='jwt-create'),
+    path("dca/destroy/", DeviceCredentialDestroyView.as_view(), name='jwt-create'),
 ]
