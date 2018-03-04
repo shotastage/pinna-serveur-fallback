@@ -36,6 +36,7 @@ ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
 # Application definition
 
 INSTALLED_APPS = [
+    'paydo.apps.PaydoConfig',
     'wavecloud.apps.WavecloudConfig',
     'pages.apps.PagesConfig',
     'artillery.apps.ArtilleryConfig',
