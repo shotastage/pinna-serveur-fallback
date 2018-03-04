@@ -16,8 +16,8 @@ whitenoise = "*"
 django-filter = "*"
 djangorestframework-simplejwt = "*"
 coreapi = "*"
-pyjwt = "*" # For apple music
-cryptography = "*" # For apple music
+pyjwt = "*"
+cryptography = "*"
 
 
 [dev-packages]
@@ -29,6 +29,7 @@ mkdocs-material = "*"
 jupyter = "*"
 flask = "*"
 django-mirage = "*"
+pylint-django = "*"
 
 
 [requires]

@@ -25,10 +25,12 @@ class ServingPages(models.Model):
   created_by    = models.CharField(max_length = 255)
   publishing_limitation = models.CharField(max_length = 255, default = "internal")
 
-
   def __str__(self):
     return self.site_id
 
+  @classmethod
+  def get_pabulished_date():
+    return self.published
 
   def get_template_path(self):
     return self.template_path
@@ -36,14 +38,14 @@ class ServingPages(models.Model):
 
 
 class SimpleTextPages(ServingPages):
-  title = models.CharField(max_length = 255)
-  subtitle = models.CharField(max_length = 255)
-  contents = models.TextField()
+  title     = models.CharField(max_length = 255)
+  subtitle  = models.CharField(max_length = 255)
+  contents  = models.TextField()
 
 
 class RichContentsPages(ServingPages):
-  title = models.CharField(max_length = 255)
-  subtitle = models.CharField(max_length = 255)
+  title     = models.CharField(max_length = 255)
+  subtitle  = models.CharField(max_length = 255)
 
 
 class LandingPage(RichContentsPages):

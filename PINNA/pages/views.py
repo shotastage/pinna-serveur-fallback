@@ -13,7 +13,7 @@ https://hplab.work/pinna-music/pinna-music/blob/master/LICENSE
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import View
-from .models import ServingPages
+from pages.models import ServingPages
 
 
 class Landings(View):
@@ -21,13 +21,18 @@ class Landings(View):
     template = "index.html"
 
     def render_template(self):
-        obj = ServingPages.__str__()
+
+        serving_pages = ServingPages.objects.all()
+
+        for i in range(len(serving_pages)):
+            list_item = serving_pages[i]
+            print('{0}:{1}'.format(i, list_item))
 
         self.template = "index.html"
 
+
     def get(self, request):
         return render(request, self.template)
-
 
     def post(self, request):
         return render(request, self.template)

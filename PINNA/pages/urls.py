@@ -10,9 +10,9 @@ This software is released under the terms of PINNA Software License, see LICENSE
 https://hplab.work/pinna-music/pinna-music/blob/master/LICENSE
 """
 
-from django.conf.urls import re_path
+from django.urls import path
 from pages.views import Landings
 
 urlpatterns = [
-    re_path(r'^', Landings.as_view(), name='landing'),
+    path(r'^', Landings.as_view(), name='landing'),
 ]

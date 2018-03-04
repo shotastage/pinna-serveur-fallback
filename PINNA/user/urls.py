@@ -10,9 +10,9 @@ This software is released under the terms of RESTRICTED, see LICENSE for detail.
 https://hplab.work/pinna-music/pinna-music/blob/master/LICENSE
 """
 
-from django.conf.urls import url
+from django.urls import path
 from user.views import """YOUR_VIEW_CLASSIES"""
 
 urlpatterns = [
-    url(r'^url_letter/', """YOUR_VIEW_CLASS""".as_view(), name='starts'),
+    path(r'^url_letter/', """YOUR_VIEW_CLASS""".as_view(), name='starts'),
 ]
