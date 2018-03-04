@@ -1,7 +1,26 @@
 # Build Stages
 stages:
+  - Environment
   - Django
   - Node.js
+
+
+
+Installation:
+  image: ubuntu:16.04
+  stage: Environment
+
+  before_script:
+    - sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+    - echo "export PATH='$(brew --prefix)/bin:$(brew --prefix)/sbin'":'"$PATH"' >>~/.bash_profile
+    - brew install python pyenv redis
+
+  script:
+    - pyenv install --list
+  
+  tags:
+    - common
+
 
 
 # Django Test on Python 3.6
@@ -123,6 +142,8 @@ node:9.6.1:
   
   tags:
     - node
+
+
 
 node:8.9.4:
   image: node:8.9.4
