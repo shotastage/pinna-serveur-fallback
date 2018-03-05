@@ -36,6 +36,9 @@ ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
 # Application definition
 
 INSTALLED_APPS = [
+    'supervisor.apps.SupervisorConfig',
+
+    # Installed Applications
     'paydo.apps.PaydoConfig',
     'wavecloud.apps.WavecloudConfig',
     'pages.apps.PagesConfig',
@@ -49,13 +52,21 @@ INSTALLED_APPS = [
     'core.apps.CoreConfig',
     'ping.apps.PingConfig',
     'api.apps.ApiConfig',
+
+    # Django Applications
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # Django REST Framework
     'rest_framework',
+
+    # Django Admin Theme
+    'admin_interface',
+    'colorfield',
 ]
 
 
