@@ -135,7 +135,7 @@ python:3.7:
   allow_failure: true
 
 
-node:9.6.1:
+node:9.7.1:
   image: node:9.6.1
   stage: Node.js
 
