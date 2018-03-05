@@ -1,22 +1,29 @@
 # Build Stages
 stages:
-  - Environment
+  - Validation
   - Django
   - Node.js
+  - Build
+  - Deploy
 
 
-
-Installation:
+ubuntu:python:
   image: ubuntu:16.04
-  stage: Environment
+  stage: Validation
 
   before_script:
-    - sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
-    - echo "export PATH='$(brew --prefix)/bin:$(brew --prefix)/sbin'":'"$PATH"' >>~/.bash_profile
-    - brew install python pyenv redis
-
-  script:
+    - apt-get update
+    - apt-get install -y curl build-essential git gcc make openssl libssl-dev libbz2-dev libreadline-dev libsqlite3-dev
+    - apt-get install -y python3-tk tk-dev python-tk libfreetype6-dev 
+    - git clone https://github.com/yyuu/pyenv.git ~/.pyenv
+    - export PYENV_ROOT=$HOME/.pyenv
+    - export PATH=$PYENV_ROOT/bin:$PATH
+    - eval "$(pyenv init -)"
+    - pyenv --version
     - pyenv install --list
+    
+  script:
+    - pyenv install 3.6.4
   
   tags:
     - common
@@ -145,6 +152,7 @@ node:9.6.1:
 
 
 
+
 node:8.9.4:
   image: node:8.9.4
   stage: Node.js
@@ -161,3 +169,50 @@ node:8.9.4:
     - node
 
   allow_failure: true
+
+
+
+
+
+build:deb:
+  image: ubuntu:16.04
+  stage: Build
+
+  before_script:
+    - echo "Skip"
+    
+  script:
+    - echo "Skip"
+  
+  tags:
+    - common
+
+
+build:container:
+  image: ubuntu:16.04
+  stage: Build
+
+  before_script:
+    - echo "Skip"
+    
+  script:
+    - echo "Skip"
+  
+  tags:
+    - common
+
+
+
+
+deploy:kubernetes:
+  image: ubuntu:16.04
+  stage: Deploy
+
+  before_script:
+    - echo "Skip"
+    
+  script:
+    - echo "Skip"
+  
+  tags:
+    - common
