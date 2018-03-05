@@ -18,6 +18,7 @@ djangorestframework-simplejwt = "*"
 coreapi = "*"
 pyjwt = "*"
 cryptography = "*"
+django-admin-interface = "*"
 
 
 [dev-packages]

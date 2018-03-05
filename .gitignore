@@ -224,3 +224,4 @@ shell/build/
 site/
 api_site/
 tools/doc_server/docs/
+collected/
