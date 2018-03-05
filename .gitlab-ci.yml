@@ -1,6 +1,6 @@
 # Build Stages
 stages:
-  - Environment
+  - Validation
   - Django
   - Node.js
 
@@ -8,28 +8,17 @@ stages:
 
 Installation:
   image: ubuntu:16.04
-  stage: Environment
+  stage: Validation
 
   before_script:
     - apt-get update
-    - apt-get install -y build-essential linux-libc-dev bridge-utils git curl ssh unzip golang wget
-    - mkdir /opt/bin
-    - echo '192.168.137.20 master' >> /etc/hosts
-    - echo '192.168.137.21  node1' >> /etc/hosts
-    - wget https://github.com/coreos/etcd/releases/download/v3.0.7/etcd-v3.0.7-linux-amd64.tar.gz
-    - tar xzvf etcd-v3.0.7-linux-amd64.tar.gz
-    - mv etcd-v3.0.7-linux-amd64/etcd /opt/bin/
-    - mv etcd-v3.0.7-linux-amd64/etcdctl /opt/bin/
-    - ln -s /opt/bin/etcd /usr/local/bin/etcd
-    - ln -s /opt/bin/etcdctl /usr/local/bin/etcdctl
-    - chmod 755 /opt/bin/etcd
-    - chmod 755 /opt/bin/etcdctl
-
-    - wget https://github.com/coreos/flannel/releases/download/v0.6.1/flanneld-amd64
-    - mkdir /opt/flanneld
-    - mv flanneld-amd64 /opt/bin/flanneld
-    - ln -s /opt/bin/flanneld /usr/local/bin/flanneld
-    - chmod 755 /opt/bin/flanneld
+    - apt-get install -y curl build-essential git gcc make openssl libssl-dev libbz2-dev libreadline-dev libsqlite3-dev
+    - apt-get install -y python3-tk tk-dev python-tk libfreetype6-dev 
+    - git clone https://github.com/yyuu/pyenv.git ~/.pyenv
+    - export PYENV_ROOT=$HOME/.pyenv
+    - export PATH=$PYENV_ROOT/bin:$PATH
+    - eval "$(pyenv init -)"
+    - pyenv --version
     
   script:
     - pyenv install --list
