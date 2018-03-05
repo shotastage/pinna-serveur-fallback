@@ -11,17 +11,15 @@ https://hplab.work/pinna-music/pinna-music/blob/master/LICENSE
 """
 
 from django.db import models
-import uuid
-
+from django.utils import timezone
+from uuid import uuid4
 
 class ServingPages(models.Model):
-  site_id       = models.UUIDField(primary_key = True, default = uuid.uuid4, editable = False)
+  site_id       = models.UUIDField(primary_key = True, default = uuid4, editable = False)
   template_path = models.CharField(max_length = 300)
   domain        = models.CharField(max_length = 255, default = "ServingPage")
-  sub_path      = models.CharField(max_length = 255)
-  parent        = models.UUIDField(null = True, default = uuid.uuid4)
   published     = models.BooleanField(default = False)
-  date          = models.DateTimeField()
+  date          = models.DateTimeField(default = timezone.now)
   created_by    = models.CharField(max_length = 255)
   publishing_limitation = models.CharField(max_length = 255, default = "internal")
 
@@ -29,7 +27,8 @@ class ServingPages(models.Model):
   def get_pabulished_date():
     return self.published
 
-  def get_template_path(self):
+  @classmethod
+  def get_template_path():
     return self.template_path
 
 
