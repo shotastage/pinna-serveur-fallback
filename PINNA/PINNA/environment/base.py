@@ -63,10 +63,6 @@ INSTALLED_APPS = [
 
     # Django REST Framework
     'rest_framework',
-
-    # Django Admin Theme
-    'admin_interface',
-    'colorfield',
 ]
 
 

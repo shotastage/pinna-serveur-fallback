@@ -7,7 +7,7 @@ name = "pypi"
 
 [packages]
 
-django = "*"
+Django = "*"
 djangorestframework = "*"
 gunicorn = "*"
 whitenoise = "*"
@@ -16,9 +16,6 @@ whitenoise = "*"
 django-filter = "*"
 djangorestframework-simplejwt = "*"
 coreapi = "*"
-pyjwt = "*"
-cryptography = "*"
-django-admin-interface = "*"
 
 
 [dev-packages]
@@ -28,7 +25,7 @@ pylint = "*"
 mkdocs = "*"
 mkdocs-material = "*"
 jupyter = "*"
-flask = "*"
+Flask = "*"
 pylint-django = "*"
 django-mirage = "*"
 
