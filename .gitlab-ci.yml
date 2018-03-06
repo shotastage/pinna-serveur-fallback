@@ -10,6 +10,7 @@ stages:
 ubuntu:python:
   image: ubuntu:16.04
   stage: Validation
+  when: manual
 
   before_script:
     - apt-get update
