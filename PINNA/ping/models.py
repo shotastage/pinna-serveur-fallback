@@ -32,19 +32,19 @@ class Pings(models.Model):
 
 
 class PingsSongDetail(Pings):
-  song_id       = models.UUIDField()
+  song_id       = models.UUIDField(default = uuid4, editable = False)
   song_title    = models.CharField(max_length = 255)
-  artist_id     = models.UUIDField()
+  artist_id     = models.UUIDField(default = uuid4, editable = False)
   artist        = models.CharField(max_length = 255)
   genre         = models.CharField(max_length = 255)
   release_date  = models.DateField()
   recorded_on   = models.CharField(max_length = 255)
-  favorites     = models.IntegerField()
-  is_hidden     = models.BooleanField()
+  favorites     = models.IntegerField(default = 0)
+  is_hidden     = models.BooleanField(default = False)
 
 
 class CompositionDetail(PingsSongDetail):
-  composer_id           = models.UUIDField()
+  composer_id           = models.UUIDField(default = uuid4, editable = False)
   composer              = models.CharField(max_length = 255)
   composer_birthday     = models.DateField()
   composer_birthplace   = models.CharField(max_length = 255)
