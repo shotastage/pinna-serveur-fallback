@@ -1,13 +1,27 @@
+"""
+PINNA
+models.py
+
+Created by Shota Shimazu on 2018/03/06
+
+Copyright (c) 2018 Shota Shimazu All Rights Reserved.
+
+This software is released under the terms of restricted, see LICENSE for detail.
+https://hplab.work/pinna-music/pinna-music/blob/master/LICENSE
+"""
+
 from django.db import models
+from django.utils import timezone
+from uuid import uuid4
 
 # Create your models here.
 
 
 class Pings(models.Model):
-  pingid      = models.UUIDField(primary_key = True)
+  pingid      = models.UUIDField(primary_key = True, default = uuid4, editable = False)
   lat         = models.CharField(max_length = 255)
   lng         = models.CharField(max_length = 255)
-  timestamp   = models.DateField()
+  timestamp   = models.DateField(default = timezone.now)
   title       = models.CharField(max_length = 255)
   description = models.TextField(blank = True)
   created_by  = models.CharField(max_length = 255)
@@ -19,7 +33,7 @@ class Pings(models.Model):
 
 class PingsSongDetail(Pings):
   song_id       = models.UUIDField()
-  song_title         = models.CharField(max_length = 255)
+  song_title    = models.CharField(max_length = 255)
   artist_id     = models.UUIDField()
   artist        = models.CharField(max_length = 255)
   genre         = models.CharField(max_length = 255)
