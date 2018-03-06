@@ -1,6 +1,7 @@
 # Setup for Development
 
 This chapter will introduce about how to setup development environment on your computer.
+Follow below gaidance to setup development environment if you will get involved to this project. Don't modify and merge your environmental specification to this repository. 
 
 ## Required Tools
 
@@ -21,7 +22,7 @@ You can create Python environment made separated from system installed Python.
 
 ### [Mirage](https://github.com/shotastage/mirage)
 
-Mirage is super integrated manager and tools for Django. It provides many management console and Rails like
+Mirage is super integrated manager and tools for Django. It provides many management console and Rails-like
  shorten CLI.
 Moreover, Mirage has environment manager that enables us to manage secret environment and it also provides
  advanced auto model generating system.
@@ -30,9 +31,8 @@ Moreover, Mirage has environment manager that enables us to manage secret enviro
 
 Pipenv is next-generation super advanced package manager for Python.
 Recently, almost all Pythonista uses **pip** as a default Python package manager.
-However, pip does not provide auto upgrading feature, and we hove to update installed package manually.
-Pipenv provides auto package upgrading feature and locking required version feature.
-Thus, we can manage packages more efficiently.
+However, pip does not provide auto upgrading feature, and we have to update installed package manually.
+Pipenv resolve these problems by providing auto package upgrading feature and locking required version feature. Thus, we can manage packages more efficiently.
 
 ### [Yarn](https://yarnpkg.com/en/)
 
@@ -83,7 +83,7 @@ brew update; brew upgrade
 ### 3. Installed minimum requirements
 
 ```
-brew install node yarn
+brew install node yarn redis
 ```
 
 
@@ -165,9 +165,6 @@ Almost all setup will be completing soon. To check completion of setting up, lau
 If the server launched properly, all installations have been completed!
 
 ```
-# move working directory
-cd PINNA
-
 # Launch server
 mg s
 ```
@@ -177,13 +174,16 @@ mg s
 You have to create  `Miragefile.secret` to generate copyrights doc automatically without interactive shell.
 
 ```
-miragefile: v0.0.1
+{
+    "miragefile": "v0.0.4",
+    "private_profile": {
+        "name": "YOUR NAME",
+        "email": "YOUR E-MAIL"
+    },
 
-private_profile:
-    name: YOUR_NAME
-    email: YOUR_EMAIL_ADDRESS
-
-private_license:
-    url: https://github.com/shotastage/pinna-music/blob/master/LICENSE
+    "private_license": {
+        "url": "https://github.com/shotastage/pinna-music/blob/master/LICENSE"
+    }
+}
 
 ```
