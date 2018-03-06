@@ -219,9 +219,18 @@ shell/build/
 ## Project Ignore                                      ##
 #########################################################
 
+# Visual Studio Code
 .vscode/
+
+# PyCharm
 .idea/
+
+# Mkdocs
 site/
+
+# API Blueprint
 api_site/
-tools/doc_server/docs/
+tools/doc_server/templates/
+
+# Collect statics
 collected/
