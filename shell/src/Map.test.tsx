@@ -12,9 +12,9 @@ https://hplab.work/pinna-music/pinna-music/blob/master/LICENSE
 
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import App from './Map';
+import Map from './Map';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
+  ReactDOM.render(<Map />, div);
 });

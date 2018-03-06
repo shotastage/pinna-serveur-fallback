@@ -1,3 +1,5 @@
+/// <reference path="../node_modules/@types/googlemaps/index.d.ts"/>
+
 /*
 PINNA
 Map.tsx
@@ -11,129 +13,62 @@ https://hplab.work/pinna-music/pinna-music/blob/master/LICENSE
 */
 
 import * as React from 'react';
+import * as ReactDOM from "react-dom";
 import './Map.css';
 
-class App extends React.Component {
-    
-    render() {
-        return (
-            <div className="App">
-                <header className="App-header">
-                    <h1 className="App-title">PINNA</h1>
-                </header>
-                <p className="App-intro">
-                    To get started, edit <code>src/App.tsx</code> and save to reload.
-                </p>
-            </div>
-        );
+
+interface GoogleMapProps { }
+interface GoogleMapState {
+    map: google.maps.Map;
+}
+
+class Map extends React.Component<GoogleMapProps, GoogleMapState> {
+    static childContextTypes = {
+        map: React.PropTypes.object
+    };
+
+    getChildContext() {
+        return { map: this.state.map };
     }
+
+    constructor() {
+        super();
+    }
+
+    state = {
+        map: null
+    };
     
-    gmap_style = [
-        {
-            "featureType": "water",
-            "elementType": "all",
-            "stylers": [
-                { "hue": "#7fc8ed" },
-                { "saturation": 55 },
-                { "lightness": -6 },
-                { "visibility": "on" }
-            ]
-        },
-        {
-            "featureType": "water",
-            "elementType": "labels",
-            "stylers": [ 
-                { "hue": "#7fc8ed" },
-                { "saturation": 55 },
-                { "lightness": -6  },
-                { "visibility": "off" }
-            ]
-        },
-        {
-            "featureType": "poi.park", "elementType": "geometry",
-            "stylers": [
-                { "hue": "#29bb9c" },
-                { "saturation": 1 },
-                { "lightness": -15 },
-                { "visibility": "on" }
-            ]
-        },
-        {
-            "featureType": "landscape", "elementType": "geometry",
-            "stylers": [
-                { "hue": "#f3f4f4" },
-                { "saturation": -84 },
-                { "lightness": 59 },
-                { "visibility": "on" }
-            ]
-        },
-        {
-            "featureType": "landscape", "elementType": "labels",
-            "stylers": [
-                { "hue": "#ffffff" },
-                { "saturation": -100 },
-                { "lightness": 100 },
-                { "visibility": "off" }
-            ]
-        },
-        {
-            "featureType": "road", "elementType": "geometry",
-            "stylers": [
-                { "hue": "#ffffff" },
-                { "saturation": -100 },
-                { "lightness": 100 },
-                { "visibility": "on" }
-            ]
-        },
-        {
-            "featureType": "road", "elementType": "labels",
-            "stylers": [
-                { "hue": "#bbbbbb" },
-                { "saturation": -100 },
-                { "lightness": 26 },
-                { "visibility": "on" }
-            ]
-        },
-        { 
-            "featureType": "road.arterial", "elementType": "geometry",
-            "stylers": [
-                { "hue": "#ffcc00" },
-                { "saturation": 100 },
-                { "lightness": -35 },
-                { "visibility": "simplified" }
-            ]
-        },
-        {
-            "featureType": "road.highway", "elementType": "geometry",
-            "stylers": [
-                { "hue": "#ffcc00" },
-                { "saturation": 100 },
-                { "lightness": -22 },
-                { "visibility": "on" }
-            ]
-        },
-        {
-            "featureType": "poi.school",
-            "elementType": "all",
-            "stylers": [
-                { "hue": "#d7e4e4" },
-                { "saturation": -60 },
-                { "lightness": 23 },
-                { "visibility": "on" }
-            ]
-        },
-        {
-            "featureType": "transit.station.rail",
-            "elementType": "all",
-            "stylers": [
-                { "hue": "#ED5565" },
-                { "saturation": -60 },
-                { "lightness": 30 },
-                { "visibility": "on" }
-            ]
+    componentDidMount() {
+        const map = new google.maps.Map(
+            ReactDOM.findDOMNode(this.refs["top"]),
+            {
+                center: new google.maps.LatLng(0,0),
+                zoom: 18,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            }
+        );
+        this.setState({ "map": map });
+    }
+    render() {
+        if (this.state.map) {
+            return (
+                <div>
+                    <div ref="top" style={{ height: 500 }}>
+                        {this.props.children}
+                    </div>
+                </div>
+            );
+        } else {
+            return (
+                <div>
+                    <div ref="top" style={{ height: 500 }}>
+                    </div>
+                </div>
+            );
         }
-    ]
+    }
 
 }
 
-export default App;
+export default Map;
