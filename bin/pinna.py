@@ -16,5 +16,5 @@ import sys
 def main():
   print("PINNA CLI is now under construction!")
   
-if __name__ = "__main__":
+if __name__ == "__main__":
   main()
