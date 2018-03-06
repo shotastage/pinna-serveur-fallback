@@ -1,0 +1,34 @@
+#
+# PINNA
+# .gitattributes
+#
+# Created by Shota Shimazu on 2018/03/07
+#
+# Copyright (c) 2018 Shota Shimazu All Rights Reserved.
+#
+# This software is released under the terms of restricted, see LICENSE for detail.
+# https://hplab.work/pinna-music/pinna-music/blob/master/LICENSE
+#
+
+*           text=auto
+
+# Source files
+*.pxd		text
+*.py 		text
+*.py3 		text
+*.pyw 		text
+*.pyx  		text
+
+# Binary files
+*.db		binary
+*.p 		binary
+*.pkl 		binary
+*.pyc 		binary
+*.pyd		binary
+*.pyo 		binary
+
+
+*.txt       text
+*.py        text eol=lf
+*.sh        text eol=lf
+*.jpg       -text
