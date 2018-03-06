@@ -18,7 +18,25 @@
     <body>
         <noscript>You need to enable JavaScript to run this app.</noscript>
         <div id="root"></div>
-        <h1>REACT APP</h1>
+        
+        <div id="maps"></div>
+        <style>
+            #maps {
+                height: 400px;
+            }
+        </style>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA32MTfuMesMcdn8CyF4wjcdizPKbqUdVg" async defer></script>
+        <script>
+        function initMap() {
+            var mapPosition = {lat: 35.170662, lng: 136.923430}
+            var mapArea = document.getElementById('maps');
+            var mapOptions = {
+                center: mapPosition,
+                zoom: 16,
+            };
+                var map = new google.maps.Map(mapArea, mapOptions);
+        }
+        </script>
         {% load static %}
         <script type="text/javascript" src="{% static "static/js/main.0b3c6c8d.js" %}"></script>
     </body>

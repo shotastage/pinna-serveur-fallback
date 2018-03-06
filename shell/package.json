@@ -2,12 +2,11 @@
   "name": "PINNA-shell",
   "version": "0.0.1",
   "description": "MUSIC ON THE MAP!",
-  "repository": "https://github.com/shotastage/pinna-music.git",
+  "repository": "https://hplab.work/pinna-music/pinna-music.git",
   "author": "Shota Shimazu <hornet.live.mf@gmail.com>",
   "license": "ISC",
   "private": true,
   "dependencies": {
-    "@types/googlemaps": "^3.30.7",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",
@@ -22,10 +21,12 @@
     "build-sass": "node-sass ./src/style/pinna.scss ./build/pinna.css"
   },
   "devDependencies": {
+    "@types/googlemaps": "^3.30.7",
     "@types/jest": "^22.1.2",
     "@types/node": "^9.4.6",
     "@types/react": "^16.0.38",
     "@types/react-dom": "^16.0.4",
+    "jest": "^22.4.2",
     "node-sass": "^4.7.2",
     "typescript": "^2.7.1",
     "webpack-bundle-tracker": "^0.2.1"
