@@ -27,6 +27,20 @@ def is_macos
     )
 end
 
+def homebrew
+    system("brew update")
+    system("brew upgrade")
+end
+
+def install_packages
+    system("brew install pyenv redis node yarn")
+end
+
+def install_python
+    system("pyenv install 3.6.4")
+    system("pyenv global 3.6.4")
+    system("pip install pipenv")
+end
 
 def main
     puts "PINNA Devel Setup for macOS"
@@ -37,6 +51,13 @@ def main
         puts "This script is only for macOS!"
         return
     end
+
+    puts "Upgrading all brew packages..."
+    homebrew
+
+    puts "Installing requires packages..."
+    install_packages
+    install_python
 end
 
 main
