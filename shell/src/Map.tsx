@@ -13,11 +13,9 @@ https://hplab.work/pinna-music/pinna-music/blob/master/LICENSE
 */
 
 import * as React from 'react';
-import * as ReactDOM from "react-dom";
 import './Map.css';
 
-
-interface GoogleMapProps { }
+interface GoogleMapProps {}
 interface GoogleMapState {
     map: google.maps.Map;
 }
@@ -25,24 +23,17 @@ interface GoogleMapState {
 class Map extends React.Component<GoogleMapProps, GoogleMapState> {
    
     render() {
-        if (this.state.map) {
-            return (
-                <div>
-                    <div ref="top" style={{ height: 500 }}>
-                        {this.props.children}
-                    </div>
-                </div>
-            );
-        } else {
-            return (
-                <div>
-                    <div ref="top" style={{ height: 500 }}>
-                    </div>
-                </div>
-            );
-        }
+        return (
+            <div className="Map">
+                <header className="Map-header">
+                    <h1 className="Map-title">PINNA</h1>
+                </header>
+                <p className="Map-intro">
+                    To get started, edit <code>src/App.tsx</code> and save to reload.
+                </p>
+            </div>
+        );
     }
-
 }
 
 export default Map;
