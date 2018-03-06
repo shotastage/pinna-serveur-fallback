@@ -18,13 +18,15 @@
     "start": "react-scripts-ts start",
     "build": "react-scripts-ts build",
     "test": "react-scripts-ts test --env=jsdom",
-    "eject": "react-scripts-ts eject"
+    "eject": "react-scripts-ts eject",
+    "build-sass": "node-sass ./src/style/pinna.scss ./build/pinna.css"
   },
   "devDependencies": {
     "@types/jest": "^22.1.2",
     "@types/node": "^9.4.6",
     "@types/react": "^16.0.38",
     "@types/react-dom": "^16.0.4",
+    "node-sass": "^4.7.2",
     "typescript": "^2.7.1",
     "webpack-bundle-tracker": "^0.2.1"
   }

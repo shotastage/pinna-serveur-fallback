@@ -23,33 +23,7 @@ interface GoogleMapState {
 }
 
 class Map extends React.Component<GoogleMapProps, GoogleMapState> {
-    static childContextTypes = {
-        map: React.PropTypes.object
-    };
-
-    getChildContext() {
-        return { map: this.state.map };
-    }
-
-    constructor() {
-        super();
-    }
-
-    state = {
-        map: null
-    };
-    
-    componentDidMount() {
-        const map = new google.maps.Map(
-            ReactDOM.findDOMNode(this.refs["top"]),
-            {
-                center: new google.maps.LatLng(0,0),
-                zoom: 18,
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-            }
-        );
-        this.setState({ "map": map });
-    }
+   
     render() {
         if (this.state.map) {
             return (

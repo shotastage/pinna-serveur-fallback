@@ -31,3 +31,10 @@ requirement:
 	@echo "Generating locked.txt ..."
 	rm -f ./requirements/locked.txt
 	pipenv lock -r >> ./requirements/locked.txt
+
+
+## for macOS
+
+brew:
+	brew update
+	brew upgrade
