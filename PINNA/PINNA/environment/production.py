@@ -14,7 +14,7 @@ import os
 from .common import *
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'qm@41&21a@)ly0i=xmd$g%c4%v8s$gdmw8+ismqi3je$)u#35+'
+SECRET_KEY = os.environ["PINNA_SECRET_KEY"]
 
 ALLOWED_HOSTS = ["*"]
 
