@@ -1,4 +1,7 @@
-# Build Stages
+############################################################
+# CI Stages                                                #
+############################################################
+
 stages:
   - Validation
   - Django
@@ -7,6 +10,39 @@ stages:
   - Deploy
 
 
+
+
+############################################################
+# Code Climate                                             #
+############################################################
+
+codequality:
+  stage: Code Climate
+  image: docker:latest
+  before_script: []
+  services:
+    - docker:dind
+  variables:
+    SETUP_DB: "false"
+    DOCKER_DRIVER: overlay2
+    CODECLIMATE_FORMAT: json
+  cache: {}
+  dependencies: []
+  script:
+    - apk update && apk add jq
+    - ./scripts/codequality analyze -f json > raw_codeclimate.json || true
+    # The following line keeps only the fields used in the MR widget, reducing the JSON artifact size
+    - jq -c 'map({check_name,description,fingerprint,location})' raw_codeclimate.json > codeclimate.json
+  artifacts:
+    paths: [codeclimate.json]
+    expire_in: 1 week
+
+
+
+
+############################################################
+# Environmental Validation                                 #
+############################################################
 ubuntu:python:
   image: ubuntu:16.04
   stage: Validation
@@ -31,6 +67,11 @@ ubuntu:python:
 
 
 
+
+
+############################################################
+# Django & Backend Test on Python 3.6                      #
+############################################################
 # Django Test on Python 3.6
 python:3.6:
   image: python:3.6.4
@@ -83,6 +124,10 @@ python:3.6:
 
 
 
+
+############################################################
+# Django & Backend Test on Python 3.7                      #
+############################################################
 # Django Test on Python 3.7
 python:3.7:
   image: python:3.7.0b1-stretch
@@ -139,6 +184,9 @@ python:3.7:
 
 
 
+############################################################
+# React & front Test by Jest on Node.js 9.7.1              #
+############################################################
 jest:9.7.1:
   image: node:9.7.1
   stage: Front Test
@@ -156,6 +204,10 @@ jest:9.7.1:
 
 
 
+
+############################################################
+# React & front Test by Jest on Node.js 8.9.4              #
+############################################################
 jest:8.9.4:
   image: node:8.9.4
   stage: Front Test
@@ -202,6 +254,9 @@ sass:
 
 
 
+############################################################
+# Build Debian Package                                     #
+############################################################
 build:deb:
   image: ubuntu:16.04
   stage: Build
@@ -216,6 +271,11 @@ build:deb:
     - common
 
 
+
+
+############################################################
+# Build Container                                          #
+############################################################
 build:container:
   image: ubuntu:16.04
   stage: Build
@@ -232,6 +292,9 @@ build:container:
 
 
 
+############################################################
+# Deploy                                                   #
+############################################################
 deploy:kubernetes:
   image: ubuntu:16.04
   stage: Deploy
