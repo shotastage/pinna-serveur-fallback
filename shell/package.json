@@ -17,6 +17,7 @@
     "start": "react-scripts-ts start",
     "build": "react-scripts-ts build",
     "test": "react-scripts-ts test --env=jsdom",
+    "test-sass": "node-sass ./src/style/pinna.scss ./build/pinna.css",
     "eject": "react-scripts-ts eject",
     "build-sass": "node-sass ./src/style/pinna.scss ./build/pinna.css"
   },

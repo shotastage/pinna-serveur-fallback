@@ -11,17 +11,7 @@ https://hplab.work/pinna-music/pinna-music/blob/master/LICENSE
 */
 
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
 import './Map.css';
-
-
-const rootID = "root";
-const rootElm = document.getElementById(rootID);
-const defaultLocation = {
-    lat: 35.666125, lng: 139.728631
-};
-export const api_key = "AIzaSyA32MTfuMesMcdn8CyF4wjcdizPKbqUdVg";
-
 
 interface GoogleMapProps {}
 interface GoogleMapState {

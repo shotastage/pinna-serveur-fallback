@@ -137,6 +137,8 @@ python:3.7:
   allow_failure: true
 
 
+
+
 jest:9.7.1:
   image: node:9.7.1
   stage: Front Test
@@ -154,7 +156,6 @@ jest:9.7.1:
 
 
 
-
 jest:8.9.4:
   image: node:8.9.4
   stage: Front Test
@@ -167,11 +168,35 @@ jest:8.9.4:
     - cd shell
     - yarn install
     - yarn run build
+    - yarn run test-sass
+    
   
   tags:
     - node
 
   allow_failure: true
+
+
+
+############################################################
+# Sass Test                                                #
+############################################################
+
+sass:
+  image: node:9.7.1
+  stage: Front Test
+
+  before_script:
+    - npm install -g yarn
+
+  script:
+    - cd shell
+    - yarn install
+    - yarn run test-sass
+  
+  tags:
+    - node
+
 
 
 
