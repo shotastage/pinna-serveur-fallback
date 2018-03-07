@@ -2,7 +2,7 @@
 stages:
   - Validation
   - Django
-  - Node.js
+  - Front Test
   - Build
   - Deploy
 
@@ -86,6 +86,7 @@ python:3.6:
 # Django Test on Python 3.7
 python:3.7:
   image: python:3.7.0b1-stretch
+  when: manual
   services:
   - name: postgres:latest
     alias: PS_1
@@ -136,9 +137,9 @@ python:3.7:
   allow_failure: true
 
 
-node:9.7.1:
-  image: node:9.6.1
-  stage: Node.js
+jest:9.7.1:
+  image: node:9.7.1
+  stage: Front Test
 
   before_script:
     - npm install -g yarn
@@ -154,9 +155,10 @@ node:9.7.1:
 
 
 
-node:8.9.4:
+jest:8.9.4:
   image: node:8.9.4
-  stage: Node.js
+  stage: Front Test
+  when: manual
 
   before_script:
     - npm install -g yarn

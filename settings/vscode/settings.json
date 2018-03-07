@@ -1,0 +1,11 @@
+{
+    "python.pythonPath": "/Users/shotastage/.virtualenvs/pinna-music-PNRHPT0P/bin/python3.6",
+    "python.linting.mypyArgs": [
+        "--ignore-missing-imports",
+        "--follow-imports=silent"
+    ],
+    "python.linting.pylintArgs": [
+        "--load-plugins=pylint_django"
+    ],
+    "git.ignoreLimitWarning": true
+}

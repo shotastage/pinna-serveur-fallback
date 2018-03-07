@@ -7,15 +7,15 @@ name = "pypi"
 
 [packages]
 
+django = "*"
 djangorestframework = "*"
+djangorestframework-simplejwt = "*"
+django-filter = "*"
 gunicorn = "*"
 whitenoise = "*"
-"apns2" = "*"
 "psycopg2-binary" = "*"
-django-filter = "*"
-djangorestframework-simplejwt = "*"
 coreapi = "*"
-django = "*"
+"apns2" = "*"
 
 
 [dev-packages]
@@ -23,11 +23,10 @@ django = "*"
 pylint = "*"
 "pep8" = "*"
 mkdocs = "*"
-mkdocs-material = "*"
-jupyter = "*"
 flask = "*"
 pylint-django = "*"
 django-mirage = "*"
+mkdocs-material = "*"
 
 
 [requires]
