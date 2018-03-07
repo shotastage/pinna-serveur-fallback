@@ -16,5 +16,5 @@ from django.db import models
 
 
 class AdminTheme(models.Model):
-  prod_title = models.CharField(max_length = 255)
-  logo = models.CharField(max_length = 255)
+  prod_title  = models.CharField(max_length = 255)
+  logo        = models.CharField(max_length = 255)

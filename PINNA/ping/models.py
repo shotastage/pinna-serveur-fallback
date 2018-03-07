@@ -51,3 +51,20 @@ class CompositionDetail(PingsSongDetail):
   composer_living_place = models.CharField(max_length = 255)
   composed_place        = models.CharField(max_length = 255)
   composed_when         = models.DateTimeField()
+
+
+class GeolocationDetail(Pings):
+  country = models.CharField(max_length = 255)
+  prefecture = models.CharField(max_length = 255)
+  state = models.CharField(max_length = 255)
+  city = models.CharField(max_length = 255)
+  detail_adress = models.CharField(max_length = 255)
+  called_name = models.CharField(max_length = 255)
+  spot = models.BooleanField()
+  spot_id = models.UUIDField()
+
+
+class GeolocationSpotDetail(models.Model):
+  spot_id = models.UUIDField()
+  name = models.CharField(max_length = 255)
+  domain = models.CharField(max_length = 255)
