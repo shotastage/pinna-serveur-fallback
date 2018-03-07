@@ -1,5 +1,5 @@
 {
-    "python.pythonPath": "/Users/shotastage/.virtualenvs/pinna-music-PNRHPT0P/bin/python3.6",
+    "python.pythonPath": "PATH TO PIPENV VIRTUAL ENVIRONMENT",
     "python.linting.mypyArgs": [
         "--ignore-missing-imports",
         "--follow-imports=silent"
