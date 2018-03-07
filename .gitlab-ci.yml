@@ -19,6 +19,8 @@ stages:
 codequality:
   stage: Code Climate
   image: docker:latest
+  tags:
+    - common
   before_script: []
   services:
     - docker:dind
