@@ -3,6 +3,7 @@
 ############################################################
 
 stages:
+  - Code Climate
   - Validation
   - Django
   - Front Test
@@ -16,7 +17,7 @@ stages:
 # Code Climate                                             #
 ############################################################
 
-codequality:
+codeclimate:
   stage: Code Climate
   image: docker:latest
   tags:
