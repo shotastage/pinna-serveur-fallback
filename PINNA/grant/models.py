@@ -30,3 +30,8 @@ class DeviceCredential(models.Model):
 
   def certificate(self, credential):
     return secrets.compare_digest(credential, self.credential)
+
+
+class PendingRegistration(models.Model):
+  is_valid_email      = models.BooleanField(default = False)
+  will_discarded_date = models.DateTimeField()

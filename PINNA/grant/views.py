@@ -10,6 +10,7 @@ This software is released under the terms of RESTRICTED, see LICENSE for detail.
 https://github.com/shotastage/pinna-music/blob/master/LICENSE
 """
 
+from rest_framework import authentication, permissions, generics
 from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -33,6 +34,28 @@ class DeviceCredentialDestroyView(APIView):
 
     def post(self, request, format=None):
         serializer = SnippetSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+
+class SignupView(APIView):
+    
+    permission_classes = (permissions.AllowAny,)
+
+    def post(self, request):
+        pass
+
+class AuthSignupVue(generics.CreateAPIView):
+    permission_classes = (permissions.AllowAny,)
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+    @transaction.atomic
+    def post(self, request, format=None):
+        serializer = UserSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
