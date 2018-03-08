@@ -27,24 +27,75 @@ def is_macos
     )
 end
 
-def homebrew
-    system("brew update")
-    system("brew upgrade")
+
+def initializations
+    ARGV.each_with_index do |arg, i|
+        puts "ARGV[#{i}]：#{arg}"
+    end
 end
 
-def install_packages
-    system("brew install pyenv redis node yarn")
+
+class HomebrewRelated
+
+    is_failed = true
+
+    def initialize
+        puts "Upgrading all homebrew package..."
+        homebrew
+        puts "Installing required packages..."
+        install_packages
+    end
+
+    def homebrew
+        system("brew update")
+        system("brew upgrade")
+    end
+
+    def install_packages
+        system("brew install pyenv redis node yarn")
+        system("brew tap bukalapak/packages")
+        system("brew install snowboard")
+    end
 end
 
-def install_python
-    system("pyenv install 3.6.4")
-    system("pyenv global 3.6.4")
-    system("pip install pipenv")
+
+class PyenvRelated
+
+    is_failed = true
+
+    def initialize
+        @instllation = false
+
+        check
+        puts "Installing required python..."
+        install
+    end
+
+    def check
+        global = `pyenv global`
+        if global.to_s == "3.6.4" then
+            puts "OK"
+            @instllation = true
+        end
+    end
+
+    def install
+
+        unless @instllation then
+            system("pyenv install 3.6.4")
+            system("pyenv global 3.6.4")
+            system("pip install pipenv")
+        end
+    end
 end
+
+
 
 def main
+
     puts "PINNA Devel Setup for macOS"
-    
+
+    # Check platform
     if is_macos
         puts "Platform: OK 👍"
     else
@@ -52,12 +103,16 @@ def main
         return
     end
 
-    puts "Upgrading all brew packages..."
-    homebrew
+    # Initial functions
+    initializations
 
-    puts "Installing requires packages..."
-    install_packages
-    install_python
+    #brew = HomebrewRelated.new
+    #python = PyenvRelated.new
+
+
+    if "Python 3.6.4" == `python -V` then
+        puts "pythoooon!"
+    end
 end
 
 main

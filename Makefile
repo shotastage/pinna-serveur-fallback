@@ -20,13 +20,6 @@ before:
 pyclean:
 	find ./mirage -name '*.pyc' -delete -not -path './mirage/scaffold/static/'
 
-apib:
-	rm -rf ./tools/doc_server/templates/api.html
-	mkdir api_site
-	snowboard html -o ./api_site/index.html ./blueprints/v1.apib
-	mv ./api_site/index.html ./tools/doc_server/templates/api.html
-	rm -rf api_site
-
 requirement:
 	@echo "Generating locked.txt ..."
 	rm -f ./requirements/locked.txt
@@ -44,3 +37,23 @@ setup:
 	pip install pyenv
 	pyenv install
 	pyenv install --dev
+
+
+
+############################################################
+## Documentation                                          ##
+############################################################
+
+# Compile & Build API Blueprint
+apib:
+	rm -rf ./tools/doc_server/templates/api.html
+	mkdir api_site
+	snowboard html -o ./api_site/index.html ./blueprints/v1.apib
+	mv ./api_site/index.html ./tools/doc_server/templates/api.html
+	rm -rf api_site
+
+mkdoc:
+	mkdocs build
+	rm -rf ./site/
+	rm -rf ./tools/doc_server/templates/docs/
+	mv -v ./site/ ./tools/doc_server/templates/docs/

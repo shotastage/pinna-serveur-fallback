@@ -20,10 +20,13 @@ class DeviceCredential(models.Model):
   """
   Models docstring is here.
   """
-  id          = models.UUIDField(primary_key = True)
+  id          = models.UUIDField(primary_key = True, default = uuid4)
   credential  = models.CharField(max_length = 255)
-  device      = models.CharField(max_length = 255)
+  name        = models.CharField(max_length = 255)
   os          = models.CharField(max_length = 255)
+
+  def create(self):
+    pass
 
 
   def publish_credential(self):

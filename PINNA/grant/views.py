@@ -30,6 +30,9 @@ class DeviceCredentialCreateView(APIView):
 
 
 class DeviceCredentialDestroyView(APIView):
+
+    permission_classes = (permissions.IsAuthenticated,)
+
     def get(self, request, format=None):
         return Response(status = status.HTTP_405_METHOD_NOT_ALLOWED)
 
@@ -58,4 +61,3 @@ class SignupView(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
