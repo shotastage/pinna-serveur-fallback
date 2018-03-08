@@ -64,6 +64,12 @@ ubuntu:python:
     
   script:
     - pyenv install 3.6.4
+    - pyenv global 3.6.4
+    - pip install pipenv
+    - pipenv --three
+    - pipenv install
+    - pipenv install --dev
+    - pipenv run mg v
   
   tags:
     - common
