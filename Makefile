@@ -38,3 +38,9 @@ requirement:
 brew:
 	brew update
 	brew upgrade
+
+
+setup:
+	pip install pyenv
+	pyenv install
+	pyenv install --dev

@@ -48,6 +48,7 @@ class SignupView(APIView):
     def post(self, request):
         pass
 
+"""
 class AuthSignupVue(generics.CreateAPIView):
     permission_classes = (permissions.AllowAny,)
     queryset = User.objects.all()
@@ -60,3 +61,4 @@ class AuthSignupVue(generics.CreateAPIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+"""

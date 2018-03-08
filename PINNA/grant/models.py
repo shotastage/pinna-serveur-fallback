@@ -11,6 +11,8 @@ https://github.com/shotastage/pinna-music/blob/master/LICENSE
 """
 
 from django.db import models
+from django.utils import timezone
+from uuid import uuid4
 import secrets
 
 
@@ -27,11 +29,20 @@ class DeviceCredential(models.Model):
   def publish_credential(self):
     return secrets.token_hex()
 
-
   def certificate(self, credential):
     return secrets.compare_digest(credential, self.credential)
 
 
+
 class PendingRegistration(models.Model):
-  is_valid_email      = models.BooleanField(default = False)
-  will_discarded_date = models.DateTimeField()
+  is_valid_email  = models.EmailField()
+  created_on      = models.DateTimeField(default = timezone.now)
+  is_invoked      = models.BooleanField(default = False)
+
+
+
+class OneTapLogin(models.Model):
+  mail_token  = models.UUIDField(default = uuid4)
+  is_tapped   = models.BooleanField(default = False)
+  is_invoked  = models.BooleanField(default = False)
+  created_on  = models.DateTimeField(default = timezone.now)
