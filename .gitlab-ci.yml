@@ -254,8 +254,8 @@ pypy:latest:
 ############################################################
 # React & front Test by Jest on Node.js 9.7.1              #
 ############################################################
-jest:9.7.1:
-  image: node:9.7.1
+jest:9.8.0:
+  image: node:9.8.0
   stage: Front Test
 
   before_script:

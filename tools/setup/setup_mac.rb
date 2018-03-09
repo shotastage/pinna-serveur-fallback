@@ -67,14 +67,13 @@ class PyenvRelated
         @instllation = false
 
         check
-        puts "Installing required python..."
         install
     end
 
     def check
         global = `pyenv global`
-        if global.to_s == "3.6.4" then
-            puts "OK"
+        if global.include?("3.6.4") then
+            puts "Required Python is already installed."
             @instllation = true
         end
     end
@@ -82,13 +81,13 @@ class PyenvRelated
     def install
 
         unless @instllation then
+            puts "Installing required python..."
             system("pyenv install 3.6.4")
             system("pyenv global 3.6.4")
             system("pip install pipenv")
         end
     end
 end
-
 
 
 def main
@@ -106,13 +105,9 @@ def main
     # Initial functions
     initializations
 
-    #brew = HomebrewRelated.new
-    #python = PyenvRelated.new
-
-
-    if "Python 3.6.4" == `python -V` then
-        puts "pythoooon!"
-    end
+    brew = HomebrewRelated.new
+    python = PyenvRelated.new
 end
 
+# Excute main
 main
