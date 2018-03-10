@@ -23,7 +23,7 @@ def InDir(path):
     os.chdir(current)
 
 
-def excute(cmds):
+def execute(*cmds):
     for cmd in cmds:
         os.system(cmd)
 
@@ -31,7 +31,7 @@ def excute(cmds):
 def build_apib():
     
     with InDir("../../"):
-        excute(
+        execute(
             "rm -rf ./tools/doc_server/templates/api.html",
 	        "mkdir api_site"
 	        "snowboard html -o ./api_site/index.html ./blueprints/v1.apib",
