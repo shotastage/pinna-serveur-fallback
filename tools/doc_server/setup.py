@@ -33,8 +33,14 @@ def build_apib():
     with InDir("../../"):
         execute(
             "rm -rf ./tools/doc_server/templates/api.html",
-	        "mkdir api_site"
+	        "mkdir api_site",
 	        "snowboard html -o ./api_site/index.html ./blueprints/v1.apib",
 	        "mv ./api_site/index.html ./tools/doc_server/templates/api.html",
 	        "rm -rf api_site",
         )
+
+
+
+if __name__ == "__main__":
+
+    build_apib()
