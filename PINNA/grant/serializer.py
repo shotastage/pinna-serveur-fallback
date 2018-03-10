@@ -17,9 +17,12 @@ from .models import DeviceCredential
 
 
 class DeviceCredentialSerializer(serializers.ModelSerializer):
+    
+    device_name = serializers.CharField(max_length = 255)
+    useragent = serializers.CharField(max_length = 255)
+
     def create(self, validated_data):
-        credential = User.objects.create_user(validated_data["username"], validated_data["email"],
-             validated_data["password"])
+        credential = DeviceCredential.objects.create()
         return credential
 
     class Meta:
