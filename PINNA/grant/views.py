@@ -10,6 +10,7 @@ This software is released under the terms of RESTRICTED, see LICENSE for detail.
 https://github.com/shotastage/pinna-music/blob/master/LICENSE
 """
 
+from django.views import View
 from rest_framework import authentication, permissions, generics
 from rest_framework import status
 from rest_framework.views import APIView
@@ -61,3 +62,12 @@ class SignupView(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class SignupVerificationView(View):
+    
+    def get(self):
+        pass
+
+    def post(self):
+        return Response(status=status.HTTP_405_METHOD_NOT_ALLOWED)

@@ -13,12 +13,16 @@ https://github.com/shotastage/pinna-music/blob/master/LICENSE
 from django.urls import path
 from django.views import generic
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView, TokenVerifyView
-from .views import DeviceCredentialCreateView, DeviceCredentialDestroyView, SignupView
+from .views import (
+    DeviceCredentialCreateView, DeviceCredentialDestroyView, SignupView,
+    SignupVerificationView,
+)
 
 urlpatterns = [
 
     # Registration API
     path("signup/", SignupView.as_view(), name = 'signup'),
+    path("signup/verification/", SignupVerificationView.as_view(), name = "signup_verification"),
 
     # Routings for JWT auth
     path("jwt/create/", TokenObtainPairView.as_view(), name = 'jwt-create'),
