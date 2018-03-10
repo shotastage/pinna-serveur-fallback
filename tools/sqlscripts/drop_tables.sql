@@ -14,6 +14,8 @@ https://hplab.work/pinna-music/pinna-music/blob/master/LICENSE
 -- Drop all tables for grant application.
 
 DROP TABLE IF EXISTS grant_devicecredential;
+DROP TABLE IF EXISTS grant_pendingregistration;
+DROP TABLE IF EXISTS grant_onetaplogin;
 
 
 -- Drop all tables for pages application.
