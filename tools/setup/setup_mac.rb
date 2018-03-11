@@ -13,6 +13,9 @@ https://hplab.work/pinna-music/pinna-music/blob/master/LICENSE
 """
 
 require 'rbconfig'
+require 'tmpdir'
+require 'fileutils'
+
 
 
 def is_macos
@@ -90,6 +93,48 @@ class PyenvRelated
 end
 
 
+
+class PostgreAPP
+    def initialize
+        Dir.mktmpdir do |dir|
+            
+            current = Dir.pwd
+            
+            unless Dir.exist?("/Applications/Postgres.app/")
+                Dir.chdir(dir)
+                download()
+                mount()
+                install()
+                unmount()
+                Dir.chdir(current)
+            end
+        end
+    end
+
+    def download
+        url = "https://github.com/PostgresApp/PostgresApp/releases/download/v2.1.3/Postgres-2.1.3.dmg"
+
+        puts "Downloading Postgres.app ..."
+        system("curl -L -O " + url)
+    end
+
+    def mount
+        puts "Mounting disk image..."
+        system("hdiutil mount Postgres-2.1.3.dmg")
+    end
+
+    def install
+        puts "Installing Postgres.app ..."
+        FileUtils.cp_r("/Volumes/Postgres-2.1.3/Postgres.app/", "/Applications/")
+    end
+
+    def unmount
+        puts "Unmounting disk image..."
+        system("umount /Volumes/Postgres-2.1.3/")
+    end
+end
+
+
 def main
 
     puts "PINNA Devel Setup for macOS"
@@ -105,8 +150,9 @@ def main
     # Initial functions
     initializations
 
-    brew = HomebrewRelated.new
-    python = PyenvRelated.new
+    HomebrewRelated.new
+    PyenvRelated.new
+    PostgreAPP.new
 end
 
 # Excute main
