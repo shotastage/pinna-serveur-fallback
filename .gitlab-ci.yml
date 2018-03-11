@@ -287,7 +287,7 @@ jest:8.9.4:
     - cd shell
     - yarn install
     - yarn run build
-    - yarn run test-sass
+    - yarn run test:sass
     
   
   tags:
@@ -311,7 +311,7 @@ sass:
   script:
     - cd shell
     - yarn install
-    - yarn run test-sass
+    - yarn run test:sass
   
   tags:
     - node

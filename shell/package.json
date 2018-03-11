@@ -18,9 +18,10 @@
     "start": "react-scripts-ts start",
     "build": "react-scripts-ts build",
     "test": "react-scripts-ts test --env=jsdom",
-    "test-sass": "node-sass ./src/style/pinna.scss ./build/pinna.css",
+    "test:sass": "node-sass ./src/style/pinna.scss ./build/pinna.css",
     "eject": "react-scripts-ts eject",
-    "build-sass": "node-sass ./src/style/pinna.scss ./build/pinna.css"
+    "build:sass": "node-sass ./src/style/pinna.scss ./build/pinna.css --output-style compressed",
+    "build:mail-sass": "node-sass ./templates/mail/style/mail.scss ./build/mail/style/mail.css --output-style compressed"
   },
   "devDependencies": {
     "@types/googlemaps": "^3.30.7",
