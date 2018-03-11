@@ -11,13 +11,13 @@ https://github.com/shotastage/pinna-music/blob/master/LICENSE
 """
 
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser, AbstractUser
+from django.contrib.auth.models import User
 from django.utils import timezone
 from secrets import token_urlsafe, compare_digest
 from uuid import uuid4
 
 
-class GrantUser(AbstractUser):
+class GrantUser(models.Model):
   """
   account_id            Account unique UUID
   account_secret        URL-safe 64 bit token
@@ -43,14 +43,17 @@ class GrantUser(AbstractUser):
     (3, 'Other')
   )
 
+  user            = models.OneToOneField(User, on_delete = models.CASCADE)
   account_id      = models.UUIDField(default = uuid4)
   account_secret  = models.CharField(max_length = 255)
   account_type    = models.CharField(max_length = 10, choices = ACCOUNT_TYPE, default="normal")
   phone           = models.CharField(max_length = 255)
   country         = models.CharField(max_length = 255)
-  address         = models.CharField(max_length = 500)
+  bio             = models.TextField(blank = True)
+  birthday        = models.DateField(blank = True)
+  address         = models.CharField(max_length = 500, blank = True)
   gender          = models.IntegerField(choices = GENDER, default = 0)
-  profession      = models.CharField(max_length = 255)
+  profession      = models.CharField(max_length = 255, blank = True)
 
   def create(self):
     self.account_secret = token_urlsafe(64)
