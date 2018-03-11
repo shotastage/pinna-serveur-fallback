@@ -140,8 +140,12 @@ DATABASES = {
         'PASSWORD': 'secret_password',
         'HOST': 'localhost',
         'PORT': 5432,
+        'TEST': {
+            'NAME': 'pinna_test',
+        },
     }
 }
+
 
 
 

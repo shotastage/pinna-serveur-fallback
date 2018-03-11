@@ -23,10 +23,14 @@ DEBUG = True
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'pinna_gitlab_ci',
+        'USER': 'gitlab_ci',
+        'PASSWORD': 'test_passwd_for_ci',
+        'HOST': 'postgres',
+        'PORT': 5432,
         'TEST': {
-            'NAME': os.path.join(BASE_DIR, 'test.sqlite3'),
+            'NAME': 'pinna_gitlab_ci_testing',
         },
     }
 }
@@ -40,19 +44,3 @@ CACHES = {
         'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
     }
 }
-
-""" backup
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'pinna_gitlab_ci',
-        'USER': 'gitlab_ci',
-        'PASSWORD': 'test_passwd_for_ci',
-        'HOST': 'postgres',
-        'PORT': 5432,
-        'TEST': {
-            'NAME': 'pinna_gitlab_ci_testing',
-        },
-    }
-}
-"""
