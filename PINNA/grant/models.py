@@ -26,7 +26,7 @@ class DeviceCredential(models.Model):
   """
 
   id            = models.UUIDField(primary_key = True, default = uuid4)
-  credential    = models.CharField(max_length = 255, default = token_urlsafe(64))
+  credential    = models.CharField(max_length = 255)
   device_name   = models.CharField(max_length = 255)
   useragent     = models.CharField(max_length = 255)
   is_revoked    = models.BooleanField(default = False)
@@ -55,8 +55,11 @@ class PendingRegistration(models.Model):
 
   email             = models.EmailField()
   created_on        = models.DateTimeField(default = timezone.now)
-  verification_code = models.CharField(max_length = 255, default = token_urlsafe(64))
+  verification_code = models.CharField(max_length = 255)
   is_revoked        = models.BooleanField(default = False)
+
+  def create(self):
+    self.verification_code = token_urlsafe(64)
 
 
 
@@ -68,7 +71,10 @@ class OneTapLogin(models.Model):
   created_on            Date & time of one tap session
   """
   
-  token       = models.CharField(max_length = 255, default = token_urlsafe(64))
+  token       = models.CharField(max_length = 255)
   is_tapped   = models.BooleanField(default = False)
   is_revoked  = models.BooleanField(default = False)
   created_on  = models.DateTimeField(default = timezone.now)
+
+  def create(self):
+    self.token = token_urlsafe(64)
