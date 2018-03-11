@@ -126,8 +126,15 @@ TEMPLATES = [
     },
 ]
 
+# WSGI Application Settings
+# https://docs.djangoproject.com/en/2.0/ref/settings/#wsgi-application
+
 WSGI_APPLICATION = 'PINNA.wsgi.application'
 
+# ASGI Application Settings
+# https://channels.readthedocs.io/en/latest/installation.html
+
+ASGI_APPLICATION = 'PINNA.routing.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases

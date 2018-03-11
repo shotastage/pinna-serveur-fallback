@@ -1,6 +1,6 @@
 """
 StreetStory Serveur
-admin.py
+serializers.py
 
 Created by Shota Shimazu on 2018/2/11
 
@@ -11,6 +11,4 @@ This software is released under the terms of StreetStory Software License, see L
 https://hplab.work/StreetStory/streetstory-serveur/blob/master/LICENSE
 """
 
-from django.contrib import admin
-
-# Register your models here.
+from rest_framework import serializers

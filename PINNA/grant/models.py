@@ -11,9 +11,49 @@ https://github.com/shotastage/pinna-music/blob/master/LICENSE
 """
 
 from django.db import models
+from django.contrib.auth.models import AbstractBaseUser, AbstractUser
 from django.utils import timezone
 from secrets import token_urlsafe, compare_digest
 from uuid import uuid4
+
+
+class GrantUser(AbstractUser):
+  """
+  account_id            Account unique UUID
+  account_secret        URL-safe 64 bit token
+  account_type          Account types defined in ACCOUNT_TYPE
+  phone                 Phone number
+  country               Country user lives in
+  address               User address ( real address )
+  gender                Gender defined in GENDER
+  profession            User profession
+  """
+
+  ACCOUNT_TYPE = (
+    ('normal', 'Normal Type Account'),
+    ('admin', 'Administrator'),
+    ('guest', 'Guest Account'),
+    ('super', 'Super User Account'),
+  )
+
+  GENDER = (
+    (0, 'Not Defined'),
+    (1, 'Male'),
+    (2, 'Female'),
+    (3, 'Other')
+  )
+
+  account_id      = models.UUIDField(default = uuid4)
+  account_secret  = models.CharField(max_length = 255)
+  account_type    = models.CharField(max_length = 10, choices = ACCOUNT_TYPE, default="normal")
+  phone           = models.CharField(max_length = 255)
+  country         = models.CharField(max_length = 255)
+  address         = models.CharField(max_length = 500)
+  gender          = models.IntegerField(choices = GENDER, default = 0)
+  profession      = models.CharField(max_length = 255)
+
+  def create(self):
+    self.account_secret = token_urlsafe(64)
 
 
 class DeviceCredential(models.Model):
@@ -53,7 +93,7 @@ class PendingRegistration(models.Model):
   is_revoked            Boolean value whether the verification code is revoked or not
   """
 
-  email             = models.EmailField()
+  email             = models.EmailField(unique = True)
   created_on        = models.DateTimeField(default = timezone.now)
   verification_code = models.CharField(max_length = 255)
   is_revoked        = models.BooleanField(default = False)
@@ -78,3 +118,9 @@ class OneTapLogin(models.Model):
 
   def create(self):
     self.token = token_urlsafe(64)
+
+
+class PendingResetAccount(models.Model):
+  account_id = models.UUIDField(unique = True)
+  created_on = models.DateTimeField(default = timezone.now)
+  is_revoked = models.BooleanField(default = False)
