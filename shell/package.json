@@ -30,6 +30,8 @@
     "@types/react-dom": "^16.0.4",
     "jest": "^22.4.2",
     "node-sass": "^4.7.2",
+    "pug": "^2.0.1",
+    "pug-cli": "^1.0.0-alpha6",
     "typescript": "^2.7.1",
     "webpack-bundle-tracker": "^0.2.1"
   },
