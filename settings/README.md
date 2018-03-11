@@ -3,7 +3,7 @@ This directory contains settings files for development use. Do not include produ
 
 ## Tools Settings
 
-- [Mirage](./mirage/Miragefile.secret)
+- [Mirage](./mirage/Miragefile.secret.json)
 
 ## Editor Settings
 
