@@ -86,21 +86,21 @@ python:3.6:
   image: python:3.6.4
   services:
   - name: postgres:latest
-    alias: PS_1
+    alias: POSTGREAPP
   - name: postgres:latest
-    alias: PS_2
+    alias: POSTGRETEST
 
 
   variables:
-    PS_1_DB: pinna_gitlab_ci
-    PS_1_USER: gitlab_ci
-    PS_1_PASSWORD: "test_passwd_for_ci"
-    PS_1_HOST: "postgres"
+    POSTGREAPP_DB: pinna_gitlab_ci
+    POSTGREAPP_USER: gitlab_ci
+    POSTGREAPP_PASSWORD: "test_passwd_for_ci"
+    POSTGREAPP_HOST: "postgres"
 
-    PS_2_DB: pinna_gitlab_ci_testing
-    PS_2_USER: gitlab_ci
-    PS_2_PASSWORD: "test_passwd_for_ci"
-    PS_2_HOST: "postgres"
+    POSTGRETEST_DB: pinna_gitlab_ci_testing
+    POSTGRETEST_USER: gitlab_ci
+    POSTGRETEST_PASSWORD: "test_passwd_for_ci"
+    POSTGRETEST_HOST: "postgres"
 
   stage: Django
   before_script:
@@ -111,12 +111,7 @@ python:3.6:
   script:
     - python --version
     - mg v
-    - cd ./PINNA
-    - cd ./PINNA
-    - rm -f test.sqlite3
-    - rm -f db.sqlite3
-    - cd ..
-    # - mg db:migrate
+    - cd ./PINNA/
     - python manage.py migrate
     - python manage.py test
 
