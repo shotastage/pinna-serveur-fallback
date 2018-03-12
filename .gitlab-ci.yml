@@ -32,7 +32,7 @@ codeclimate:
   cache: {}
   dependencies: []
   script:
-    - ./ci/stages/codeclimate_script.sh
+    - ./ci/scripts/codeclimate_script.sh
   artifacts:
     paths: [codeclimate.json]
     expire_in: 1 week
@@ -49,10 +49,10 @@ ubuntu:python:
   when: manual
 
   before_script:
-    - ./ci/stages/Validation_ubuntu_python_before_script.sh
+    - ./ci/scripts/Validation_ubuntu_python_before_script.sh
     
   script:
-    - ./ci/stages/Validation_ubuntu_python_script.sh
+    - ./ci/scripts/Validation_ubuntu_python_script.sh
   
   tags:
     - common
@@ -88,7 +88,7 @@ python:3.6:
 
   stage: Django
   before_script:
-    - ./ci/stages/Django_python_3.6_before_script.sh
+    - ./ci/scripts/Django_python_3.6_before_script.sh
 
   script:
     - python --version
