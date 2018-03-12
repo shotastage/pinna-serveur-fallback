@@ -53,7 +53,24 @@ ubuntu:python:
   when: manual
 
   before_script:
-    - ./ci/scripts/Validation_ubuntu_python_before_script.sh
+    - apt-get update
+    - apt-get install -y curl build-essential git gcc make openssl libssl-dev libbz2-dev libreadline-dev libsqlite3-dev
+    - apt-get install -y python3-tk tk-dev python-tk libfreetype6-dev 
+    - git clone https://github.com/yyuu/pyenv.git ~/.pyenv
+    - export PYENV_ROOT=$HOME/.pyenv
+    - export PATH=$PYENV_ROOT/bin:$PATH
+    - eval "$(pyenv init -)"
+    - pyenv --version
+    - pyenv install 3.6.4
+    - pyenv global 3.6.4
+    - pip install pipenv
+    
+    - sh -c "echo 'deb http://apt.postgresql.org/pub/repos/apt/ xenial-pgdg main' > /etc/apt/sources.list.d/pgdg.list"
+    - wget --quiet -O - http://apt.postgresql.org/pub/repos/apt/ACCC4CF8.asc | apt-key add -
+    - apt-key list
+    - apt-get update
+    - apt-get install postgresql -y
+    
     
   script:
     - ./ci/scripts/Validation_ubuntu_python_script.sh

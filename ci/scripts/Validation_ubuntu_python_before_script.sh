@@ -19,5 +19,9 @@ export PYENV_ROOT=$HOME/.pyenv
 export PATH=$PYENV_ROOT/bin:$PATH
 eval "$(pyenv init -)"
 pyenv --version
-pyenv install --list
-    
+pyenv install 3.6.4
+pyenv global 3.6.4
+pip install pipenv
+pipenv --three
+pipenv install
+pipenv install --dev
