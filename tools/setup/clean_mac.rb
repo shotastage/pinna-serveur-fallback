@@ -40,6 +40,9 @@ end
 
 
 def main
+
+    puts "This script is now under construction!"
+
     UninstallRecetPostgreApp.new
     UninstallBrewPackages.new
 end

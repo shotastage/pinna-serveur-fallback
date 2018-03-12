@@ -107,8 +107,12 @@ class PostgreAPP
                 install()
                 unmount()
                 Dir.chdir(current)
+            else
+                puts "Postgres.app is already installed!"
             end
         end
+
+        show_references()
     end
 
     def download
@@ -131,6 +135,17 @@ class PostgreAPP
     def unmount
         puts "Unmounting disk image..."
         system("umount /Volumes/Postgres-2.1.3/")
+    end
+
+    def show_references
+        puts "=========== [ CREATE DATABASE MANUALLY! ] ============================================="
+        puts "| After completed installation, open the Postgres.app and then run following query.   |"
+        puts "| You have to select scheme of your username set on system by default.                |"
+        puts "|                                                                                     |"
+        puts "| CREATE DATABASE pinna_devel;                                                        |"
+        puts "| CREATE DATABASE pinna_test;                                                         |"
+        puts "|                                                                                     |"
+        puts "======================================================================================="
     end
 end
 
