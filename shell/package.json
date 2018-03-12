@@ -49,7 +49,9 @@
     "test": "node scripts/test.js --env=jsdom",
     "test:sass": "node-sass ./src/style/pinna.scss ./build/pinna.css",
     "build:sass": "node-sass ./src/style/pinna.scss ./build/pinna.css --output-style compressed",
-    "build:mail-sass": "node-sass ./templates/mail/style/mail.scss ./build/mail/style/mail.css --output-style compressed"
+    "build:mail-sass": "node-sass ./templates/mail/style/mail.scss ./build/mail/style/mail.css --output-style compressed",
+    "build:mail": "pug ./templates/mail/src -o ./templates/mail/",
+    "build:template": "pug ./templates/src -o ./templates/"
   },
   "devDependencies": {
     "@types/googlemaps": "^3.30.7",

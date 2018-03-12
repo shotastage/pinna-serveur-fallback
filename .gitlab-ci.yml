@@ -313,6 +313,29 @@ sass:
 
 
 
+############################################################
+# Pug Test                                                #
+############################################################
+
+sass:
+  image: pug
+  stage: Front Test
+
+  before_script:
+    - npm install -g yarn
+
+  script:
+    - cd shell
+    - yarn install
+    - yarn build:template
+    - yarn build:mail
+  
+  tags:
+    - node
+
+
+
+
 
 
 
