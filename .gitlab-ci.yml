@@ -317,8 +317,8 @@ sass:
 # Pug Test                                                #
 ############################################################
 
-sass:
-  image: pug
+pug:
+  image: node:9.7.1
   stage: Front Test
 
   before_script:
