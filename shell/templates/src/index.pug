@@ -1,0 +1,35 @@
+//-
+    PINNA
+    index.pug
+
+    Created by Shota Shimazu on 2018/03/12
+
+    Copyright (c) 2018 Shota Shimazu All Rights Reserved.
+
+    This software is released under the terms of restricted, see LICENSE for detail.
+    https://hplab.work/pinna-music/pinna-music/blob/master/LICENSE
+
+extends base.pug
+
+
+block contents
+
+    #root
+    #maps
+
+    style.
+        #maps {
+            height: 400px;
+        }
+
+    script(src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA32MTfuMesMcdn8CyF4wjcdizPKbqUdVg" async defer)
+    script.
+        function initMap() {
+            var mapPosition = {lat: 35.170662, lng: 136.923430}
+            var mapArea = document.getElementById('maps');
+            var mapOptions = {
+                center: mapPosition,
+                zoom: 16,
+            };
+                var map = new google.maps.Map(mapArea, mapOptions);
+        }

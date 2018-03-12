@@ -38,6 +38,14 @@ def initializations
 end
 
 
+class XcodeInstallation
+
+    def initialize
+        puts "Installing Xcode..."
+    end
+
+end
+
 class HomebrewRelated
 
     is_failed = true
