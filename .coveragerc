@@ -1,0 +1,9 @@
+[run]
+source = "PINNA"
+omit =
+  venv/*
+  */manage.py
+  */wsgi.py
+  */asgi.py
+  */migrations/*
+  */__init__.py

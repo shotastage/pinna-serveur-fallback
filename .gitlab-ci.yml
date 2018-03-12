@@ -32,7 +32,11 @@ codeclimate:
   cache: {}
   dependencies: []
   script:
-    - ./ci/scripts/codeclimate_script.sh
+    - apk update && apk add jq
+    - ./scripts/codequality analyze -f json > raw_codeclimate.json || true
+    # The following line keeps only the fields used in the MR widget, reducing the JSON artifact size
+    - jq -c 'map({check_name,description,fingerprint,location})' raw_codeclimate.json > codeclimate.json
+
   artifacts:
     paths: [codeclimate.json]
     expire_in: 1 week
