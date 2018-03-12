@@ -104,6 +104,7 @@ python:3.6:
 
   stage: Django
   before_script:
+    - apt-get update -qq && apt-get install -y -qq postgresql postgresql-contrib libpq-dev cmake
     - pip install --upgrade pip
     - pip install -r ./requirements/locked.txt
     - pip install django-mirage
@@ -156,6 +157,7 @@ python:3.7:
 
   stage: Django
   before_script:
+    - apt-get update -qq && apt-get install -y -qq postgresql postgresql-contrib libpq-dev cmake
     - pip install --upgrade pip
     - pip install -r ./requirements/locked.txt
     - pip install django-mirage
@@ -216,6 +218,7 @@ pypy:latest:
 
   stage: Django
   before_script:
+    - apt-get update -qq && apt-get install -y -qq postgresql postgresql-contrib libpq-dev cmake
     - pip install --upgrade pip
     - pip install -r ./requirements/locked.txt
     - pip install django-mirage
