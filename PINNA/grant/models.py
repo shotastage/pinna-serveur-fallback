@@ -18,16 +18,6 @@ from uuid import uuid4
 
 
 class GrantUser(models.Model):
-  """
-  account_id            Account unique UUID
-  account_secret        URL-safe 64 bit token
-  account_type          Account types defined in ACCOUNT_TYPE
-  phone                 Phone number
-  country               Country user lives in
-  address               User address ( real address )
-  gender                Gender defined in GENDER
-  profession            User profession
-  """
 
   ACCOUNT_TYPE = (
     ('normal', 'Normal Type Account'),
@@ -43,10 +33,28 @@ class GrantUser(models.Model):
     (3, 'Other')
   )
 
+  """
+  user                  Relation to Django user model
+  account_id            Grant account unique UUID
+  account_secret        URL-safe 64 bit token for API verification secret
+  account_type          Account types defined in ACCOUNT_TYPE
+  """
+
   user            = models.OneToOneField(User, on_delete = models.CASCADE)
   account_id      = models.UUIDField(default = uuid4)
   account_secret  = models.CharField(max_length = 255)
   account_type    = models.CharField(max_length = 10, choices = ACCOUNT_TYPE, default="normal")
+
+  """
+  User Profile:
+
+  phone                 Phone number
+  country               Country user lives in
+  address               User address ( real address )
+  gender                Gender defined in GENDER
+  profession            User profession
+  """
+
   phone           = models.CharField(max_length = 255)
   country         = models.CharField(max_length = 255)
   bio             = models.TextField(blank = True)
@@ -54,6 +62,12 @@ class GrantUser(models.Model):
   address         = models.CharField(max_length = 500, blank = True)
   gender          = models.IntegerField(choices = GENDER, default = 0)
   profession      = models.CharField(max_length = 255, blank = True)
+
+  """
+  User Settings:
+  """
+  is_onetap_login_enabled = models.BooleanField(default = False)
+
 
   def create(self):
     self.account_secret = token_urlsafe(64)
@@ -88,7 +102,7 @@ class DeviceCredential(models.Model):
     self.is_revoked = True
 
 
-class PendingRegistration(models.Model):
+class SignupVerification(models.Model):
   """
   email                 New registration email address
   created_on            Date & time of registering on pending

@@ -13,7 +13,7 @@ https://hplab.work/pinna-music/pinna-music/blob/master/LICENSE
 from rest_framework import serializers
 from rest_framework.validators import UniqueValidator
 from django.contrib.auth.models import User
-from .models import DeviceCredential
+from .models import (DeviceCredential,)
 
 
 class DeviceCredentialSerializer(serializers.ModelSerializer):
@@ -43,6 +43,9 @@ class UserSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         user = User.objects.create_user(validated_data["username"], validated_data["email"],
              validated_data["password"])
+        user.is_active = False
+        user.save()
+    
         return user
 
     class Meta:
