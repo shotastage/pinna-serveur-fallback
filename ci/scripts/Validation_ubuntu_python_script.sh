@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 #
 # PINNA
 # Validation_ubuntu_python_script.sh

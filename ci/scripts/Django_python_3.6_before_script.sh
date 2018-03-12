@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 #
 # PINNA
 # Django_python_3.6_before_script.sh
