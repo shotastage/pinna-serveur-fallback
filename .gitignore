@@ -213,6 +213,7 @@ Miragefile.secret
 
 shell/dist/
 shell/build/
+shell/templates/build/
 
 
 #########################################################

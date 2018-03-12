@@ -50,8 +50,8 @@
     "test:sass": "node-sass ./src/style/pinna.scss ./build/pinna.css",
     "build:sass": "node-sass ./src/style/pinna.scss ./build/pinna.css --output-style compressed",
     "build:mail-sass": "node-sass ./templates/mail/style/mail.scss ./build/mail/style/mail.css --output-style compressed",
-    "build:mail": "pug ./templates/mail/src -o ./templates/mail/",
-    "build:template": "pug ./templates/src -o ./templates/"
+    "build:mail": "pug ./templates/src/mail -o ./templates/build/mail/",
+    "build:template": "pug ./templates/src/pages -o ./templates/build/pages/"
   },
   "devDependencies": {
     "@types/googlemaps": "^3.30.7",
@@ -62,6 +62,7 @@
     "node-sass": "^4.7.2",
     "pug": "^2.0.1",
     "pug-cli": "^1.0.0-alpha6",
+    "pug-loader": "^2.3.0",
     "typescript": "^2.7.1",
     "webpack-bundle-tracker": "^0.2.1"
   },

@@ -15,19 +15,19 @@ html(lang="en")
         meta(charset="utf-8")
         meta(name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no")
         | {% load static %}
-        meta(name="theme-color" content="#000000")
-        link(rel="manifest" href="{% static \"manifest.json\" %}")
+        | <meta name="theme-color" content="#000000">
+        | <link rel="manifest" href="{% static "manifest.json" %}">
         | {% load static %}
-        link(rel="shortcut icon" href="{% static \"favicon.ico\" %}", type="image/x-icon")
+        | <link rel="shortcut icon" href="{% static "favicon.ico" %}", type="image/x-icon">
         | {% load static %}
-        link(rel="stylesheet" href="{% static \"pinna.css\" %}")
+        | <link rel="stylesheet" href="{% static "pinna.css" %}">
         title PINNA
         | {% load static %}
-        link(href="{% static \"static/css/main.3ed67e0b.css\" %}" rel="stylesheet")
+        | <link href="{% static "static/css/main.3ed67e0b.css" %}" rel="stylesheet">
     body
         noscript You need to enable JavaScript to run this app.
 
         block contents
 
-        |{% load static %}
-        script(type="text/javascript" src="{% static \"static/js/main.0b3c6c8d.js\" %}")
+        | {% load static %}
+        | <script type="text/javascript" src="{% static "static/js/main.0b3c6c8d.js" %}"></script>
