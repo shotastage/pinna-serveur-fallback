@@ -207,3 +207,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 #    'django.contrib.staticfiles.finders.FileSystemFinder',
 #    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 #]
+
+# Django Email Settings
+# https://docs.djangoproject.com/en/2.0/topics/email/#obtaining-an-instance-of-an-email-backend
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
