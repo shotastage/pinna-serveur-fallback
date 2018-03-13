@@ -1,6 +1,6 @@
 """
 PINNA
-models.py
+basics.py
 
 Created by Shota Shimazu on 2018/03/06
 
