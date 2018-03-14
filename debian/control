@@ -1,0 +1,8 @@
+Source: pinna-serveur
+Maintainer: Shota Shimazu <hornet.live.mf@gmail.com>
+Build-Depends: cdbs, debhelper
+Standards-Version: 0.1
+ 
+Package: pinna-serveur
+Architecture: all
+Description: PINNA
