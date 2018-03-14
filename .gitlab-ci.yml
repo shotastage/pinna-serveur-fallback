@@ -3,44 +3,11 @@
 ############################################################
 
 stages:
-  - Code Climate
   - Validation
   - Django
   - Front Test
   - Build
   - Deploy
-
-
-
-
-############################################################
-# Code Climate                                             #
-############################################################
-
-codeclimate:
-  stage: Code Climate
-  image: docker:latest
-  tags:
-    - common
-  before_script: []
-  services:
-    - docker:dind
-  variables:
-    SETUP_DB: "false"
-    DOCKER_DRIVER: overlay2
-    CODECLIMATE_FORMAT: json
-  cache: {}
-  dependencies: []
-  script:
-    - apk update && apk add jq
-    - ./scripts/codequality analyze -f json > raw_codeclimate.json || true
-    # The following line keeps only the fields used in the MR widget, reducing the JSON artifact size
-    - jq -c 'map({check_name,description,fingerprint,location})' raw_codeclimate.json > codeclimate.json
-
-  artifacts:
-    paths: [codeclimate.json]
-    expire_in: 1 week
-
 
 
 
