@@ -83,3 +83,23 @@ class DeviceCredentialDestroyView(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+
+class SignupUIView(View):
+
+    def get(self, request):
+        pass 
+    
+    def post(self, request):
+        return Response(status = status.HTTP_405_METHOD_NOT_ALLOWED)
+
+
+
+class SiginUIView(View):
+
+    def get(self, request):
+        pass 
+    
+    def post(self, request):
+        return Response(status = status.HTTP_405_METHOD_NOT_ALLOWED)

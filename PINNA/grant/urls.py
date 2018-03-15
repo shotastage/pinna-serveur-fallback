@@ -15,14 +15,14 @@ from django.views import generic
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView, TokenVerifyView
 from .views import (
     DeviceCredentialCreateView, DeviceCredentialDestroyView, SignupView,
-    SignupVerificationView,
+    SignupVerificationView, SignupUIView, SiginUIView
 )
 
 urlpatterns = [
 
     # Registration API
-    path("signup/", SignupView.as_view(), name = 'signup'),
-    path("signup/verification/", SignupVerificationView.as_view(), name = "signup_verification"),
+    path("api/signup/", SignupView.as_view(), name = 'signup'),
+    path("api/signup/verification/", SignupVerificationView.as_view(), name = "signup_verification"),
 
     # Routings for JWT auth
     path("jwt/create/", TokenObtainPairView.as_view(), name = 'jwt-create'),
@@ -34,4 +34,8 @@ urlpatterns = [
     path("dca/destroy/", DeviceCredentialDestroyView.as_view(), name = 'jwt-create'),
 
     # Routings for ACA (API Credential Auth)
+
+    # Routings for Web Auth UI
+    path("users/signup/", SignupUIView.as_view(), name = 'signup'),
+    path("users/signin/", SiginUIView.as_view(), name = 'signin'),
 ]

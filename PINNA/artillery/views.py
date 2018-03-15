@@ -11,5 +11,15 @@ https://hplab.work/pinna-music/pinna-serveur/blob/master/LICENSE
 """
 
 from django.shortcuts import render
+from django.conf import settings
+from rest_framework.views import APIView
 
-# Create your views here.
+
+
+class MailSendView(APIView):
+    
+    def post(self, request):
+        pass
+
+    def get(self, request):
+        pass
