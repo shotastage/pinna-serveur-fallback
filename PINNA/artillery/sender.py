@@ -12,25 +12,85 @@ https://hplab.work/pinna-music/pinna-music/blob/master/LICENSE
 
 from django.template.loader import get_template
 from django.template import Context
-from django.core.mail import EmailMultiAlternatives, send_mail
+from django.core.mail import EmailMessage, send_mail
+from django.http import HttpResponse, HttpResponseRedirect
+from uuid import uuid4
 
 
 
 
 class ArtilleryMail():
+    """
+    Mail Creation Class which is only for a single sending target
 
-    def __init__(self, to_address, from_address, subject, text):
-        self._to = to_address
-        self._from = from_address
+    Init:
+        - to_email          Email TO
+        - from_email        From email
+        - reply_email       Reply email
+        - subject           Mail subject
+        - template          Template path
+        - mail_id           Mail ID ( UUID )
+    """
+
+    def __init__(self, to_email, from_email, reply_email, subject, template, mail_id):
+        self._to = to_email
+        self._from = from_email
+        self._reply = reply_email
         self._subject = subject
-        self._text = text
+        self._template = template
+
+        if mail_id is None:
+            self._id = uuid4()
+        else:    
+            self._id = mail_id
 
 
     def send(self):
-        send_mail(
+
+        email = EmailMessage(
             self._subject,
-            self._text,
+            self._template,
             self._from,
-            self._to,
-            fail_silently = False,
+            [self._to],
+            [], # BCC Emails
+            [self._reply],
+            headers={'Message-ID': 'foo'},
+        )
+
+
+class ArtilleryMassMails():
+    """
+    Mail Creation Class which is only for a single sending target
+
+    Init:
+        - to_emails         Email TO
+        - from_email        From email
+        - reply_email       Reply email
+        - subject           Mail subject
+        - template          Template path
+        - mail_id           Mail ID ( UUID )
+    """
+    
+    def __init__(self, to_emails, from_email, reply_email, subject, template, mail_id):
+        self._to = to_emails
+        self._from = from_email
+        self._reply = reply_email
+        self._subject = subject
+        self._template = template
+        if mail_id is None:
+            self._id = uuid4()
+        else:    
+            self._id = mail_id
+
+
+    def send(self):
+
+        email = EmailMessage(
+            self._subject,
+            self._template,
+            self._from,
+            [self._reply], # Reply address instead of To addresses
+            [self._to],  # To addresses instead of BCC
+            [self._reply],
+            headers={'Message-ID': 'foo'},
         )
