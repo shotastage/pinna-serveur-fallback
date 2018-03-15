@@ -18,7 +18,6 @@ from uuid import uuid4
 
 
 
-
 class ArtilleryMail():
     """
     Mail Creation Class which is only for a single sending target
@@ -32,7 +31,7 @@ class ArtilleryMail():
         - mail_id           Mail ID ( UUID )
     """
 
-    def __init__(self, to_email, from_email, reply_email, subject, template, mail_id):
+    def __init__(self, to_email, from_email, reply_email, subject, template, mail_id = None):
         self._to = to_email
         self._from = from_email
         self._reply = reply_email
@@ -71,7 +70,7 @@ class ArtilleryMassMails():
         - mail_id           Mail ID ( UUID )
     """
     
-    def __init__(self, to_emails, from_email, reply_email, subject, template, mail_id):
+    def __init__(self, to_emails, from_email, reply_email, subject, template, mail_id = None):
         self._to = to_emails
         self._from = from_email
         self._reply = reply_email
