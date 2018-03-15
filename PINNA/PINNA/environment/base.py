@@ -36,6 +36,7 @@ ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
 # Application definition
 
 INSTALLED_APPS = [
+    'pvs.apps.PvsConfig',
     'pinlock.apps.PinlockConfig',
     'pinner.apps.PinnerConfig',
     'supervisor.apps.SupervisorConfig',
