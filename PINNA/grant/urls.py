@@ -36,6 +36,6 @@ urlpatterns = [
     # Routings for ACA (API Credential Auth)
 
     # Routings for Web Auth UI
-    path("users/signup/", SignupUIView.as_view(), name = 'signup'),
-    path("users/signin/", SiginUIView.as_view(), name = 'signin'),
+    path("users/signup/", SignupUIView.as_view(), name = 'signup-ui'),
+    path("users/signin/", SiginUIView.as_view(), name = 'signin-ui'),
 ]
