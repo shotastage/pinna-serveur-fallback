@@ -53,8 +53,10 @@ class ArtilleryMail():
             [self._to],
             [], # BCC Emails
             [self._reply],
-            headers={'Message-ID': 'foo'},
+            headers={'Message-ID': self._id},
         )
+
+        email.send(fail_silently = False)
 
 
 class ArtilleryMassMails():
@@ -91,5 +93,7 @@ class ArtilleryMassMails():
             [self._reply], # Reply address instead of To addresses
             [self._to],  # To addresses instead of BCC
             [self._reply],
-            headers={'Message-ID': 'foo'},
+            headers={'Message-ID': self._id},
         )
+
+        email.send(fail_silently = False)
