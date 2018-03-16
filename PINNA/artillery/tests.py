@@ -24,12 +24,6 @@ class MailSenderTests(TestCase):
         #Clean up run after every test method.
         pass
 
-    def test_something_that_will_pass(self):
-        self.assertFalse(False)
-
-    def test_something_that_will_fail(self):
-        self.assertTrue(False)
-
     
     def single_mail_send(self):
 
@@ -41,6 +35,10 @@ class MailSenderTests(TestCase):
             "mail.html",                        # Email View Template
         )
 
+        print("Testing mail...")
+        mail.send()
+
+
     def mass_mail_send(self):
         
         mail = ArtilleryMassMails(
@@ -50,3 +48,6 @@ class MailSenderTests(TestCase):
             "Test Mail Subject",                # Mail Subject
             "mail.html",                        # Email View Template
         )
+
+        print("Testing mail...")
+        mail.send()
