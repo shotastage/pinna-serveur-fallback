@@ -28,9 +28,9 @@ class MailSenderTests(TestCase):
     def single_mail_send(self):
 
         mail = ArtilleryMail(
-            "pinner@pinna.ml",                  # To
-            "from@pinna.ml",                    # From
-            "contact@pinna.ml",                 # Reply address
+            "hornet.live.mf@gmail.com",         # To
+            "web_devel@labbiness.com",          # From
+            "web_devel@labbiness.com",          # Reply address
             "Test Mail Subject",                # Email Subject
             "mail.html",                        # Email View Template
         )
@@ -43,8 +43,8 @@ class MailSenderTests(TestCase):
         
         mail = ArtilleryMassMails(
             ["pinner1@pinna.ml", "pinner2@pinna.ml", "pinner3@pinna.ml"], # To
-            "from@labbiness.com",               # From
-            "contact@labbiness.com",            # Reply address
+            "web_devel@labbiness.com",          # From
+            "web_devel@labbiness.com",          # Reply address
             "Test Mail Subject",                # Mail Subject
             "mail.html",                        # Email View Template
         )

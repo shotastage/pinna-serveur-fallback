@@ -15,6 +15,7 @@ from django.template import Context
 from django.core.mail import EmailMessage, send_mail
 from django.http import HttpResponse, HttpResponseRedirect
 from uuid import uuid4
+from enum import Enum
 
 
 
@@ -32,31 +33,31 @@ class ArtilleryMail():
     """
 
     def __init__(self, to_email, from_email, reply_email, subject, template, mail_id = None):
-        self._to = to_email
-        self._from = from_email
-        self._reply = reply_email
+        self._to, self._from, self._reply = to_email, from_email, reply_email
         self._subject = subject
         self._template = template
+        self._id = mail_id
+        self._result = ArtilleryShootResult.succeeded
 
-        if mail_id is None:
-            self._id = uuid4()
-        else:    
-            self._id = mail_id
+        if self._id is None: self._id = uuid4()
 
 
     def send(self):
 
         email = EmailMessage(
-            self._subject,
-            self._template,
-            self._from,
-            [self._to],
-            [], # BCC Emails
-            [self._reply],
-            headers={'Message-ID': self._id},
+            subject     = self._subject,
+            body        = self._template,
+            from_email  = self._from,
+            to          = [self._to],
+            bcc         = [],
+            reply_to    = [self._reply],
+            headers     = {'Message-ID': self._id},
         )
 
         email.send(fail_silently = False)
+
+        return (self._id, self._result)
+
 
 
 class ArtilleryMassMails():
@@ -73,27 +74,32 @@ class ArtilleryMassMails():
     """
     
     def __init__(self, to_emails, from_email, reply_email, subject, template, mail_id = None):
-        self._to = to_emails
-        self._from = from_email
-        self._reply = reply_email
+        self._to, self._from, self._reply = to_emails, from_email, reply_email
         self._subject = subject
         self._template = template
-        if mail_id is None:
-            self._id = uuid4()
-        else:    
-            self._id = mail_id
+        self._id = mail_id
+        self._result = ArtilleryShootResult.succeeded
+
+        if self._id is None: self._id = uuid4()        
 
 
     def send(self):
 
         email = EmailMessage(
-            self._subject,
-            self._template,
-            self._from,
-            [self._reply], # Reply address instead of To addresses
-            [self._to],  # To addresses instead of BCC
-            [self._reply],
-            headers={'Message-ID': self._id},
+            subject     = self._subject,
+            body        = self._template,
+            from_email  = self._from,
+            to          = [self._reply],    # Reply address instead of To addresses
+            bcc         = [self._to],       # To addresses instead of BCC
+            reply_to    = [self._reply],
+            headers     = {'Message-ID': self._id},
         )
 
         email.send(fail_silently = False)
+
+        return (self._id, self._result)
+
+
+class ArtilleryShootResult(Enum):
+    succeeded = 0
+    failed = 1

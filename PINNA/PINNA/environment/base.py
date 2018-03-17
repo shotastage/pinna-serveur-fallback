@@ -210,4 +210,9 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Django Email Settings
 # https://docs.djangoproject.com/en/2.0/topics/email/#obtaining-an-instance-of-an-email-backend
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.happinesslab.conoha.io'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = "web_devel@labbiness.com"
+EMAIL_HOST_PASSWORD = "z7rA62zDrKyqxrBpvfjQyg"
+EMAIL_USE_TLS = True

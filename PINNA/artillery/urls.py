@@ -11,9 +11,10 @@ https://hplab.work/pinna-music/pinna-serveur/blob/master/LICENSE
 """
 
 from django.urls import path
-from artillery.views import MailSendView
+from artillery.views import MailSendView, DebugMailSendView
 
 
 urlpatterns = [
-    path('send_email', MailSendView.as_view(), name='starts'),
+    path('sendmail', MailSendView.as_view(), name='starts'),
+    path('sendmail/ondebug/', DebugMailSendView.as_view()),
 ]

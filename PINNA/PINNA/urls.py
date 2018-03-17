@@ -29,6 +29,7 @@ urlpatterns = [
 
     # Routing for Authentication
     path("api/", get_schema_view()),
-    path("api/auth/", include('grant.urls'))
+    path("api/auth/", include('grant.urls')),
+    path("mail/", include('artillery.urls'))
     #url(r'^api-auth/', include('rest_framework.urls'))
 ]

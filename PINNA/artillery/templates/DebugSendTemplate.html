@@ -1,0 +1,42 @@
+<!doctype html>
+<!--
+PINNA
+DebugSendTemplate.html
+
+Created by Shota Shimazu on 2018/03/17
+
+Copyright (c) 2018 Shota Shimazu All Rights Reserved.
+
+This software is released under the terms of restricted, see LICENSE for detail.
+https://hplab.work/pinna-music/pinna-serveur/blob/master/LICENSE
+-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Debug Mail Sender | PINNA </title>
+    </head>
+    <body>
+        <h1>Artillery Mail Sender Debugger</h1>
+
+        <p>
+            Result: <span style="color:red;">{{ mail_result }}</span>
+        </p>
+
+        <form action="/api/mail/sendmail/ondebug/" method="post">{% csrf_token %}
+            <div>
+                <label for="mail">To:</label>
+                <input type="email" name="mail_to">
+            </div>
+            <div>
+                <label for="msg">Subject:</label>
+                <input type="text" name="subject">
+            </div>
+            <div>
+                <label for="msg">Message:</label>
+                <textarea name="message"></textarea>
+            </div>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </body>
+</html>
