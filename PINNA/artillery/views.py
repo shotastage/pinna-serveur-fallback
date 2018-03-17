@@ -34,12 +34,7 @@ class DebugMailSendView(View):
     @debug
     def get(self, request):
         
-        context = {
-            "smtp_host": settings.EMAIL_HOST,
-            "smtp_port": settings.EMAIL_PORT,
-            "smtp_user": settings.EMAIL_HOST_USER,
-            "mail_result": "Not sent",
-        }
+        context = { "mail_result": "Not sent" }
 
         return render(request, 'DebugSendTemplate.html', context)
 
@@ -49,25 +44,23 @@ class DebugMailSendView(View):
 
         result = "Succeeded"
 
-        html_contents = ArtilleryMail.render("TestHTMLMail.html", context = { "message": request.POST["message"] })
+        html_contents = ArtilleryMail.renderHTML(
+            template    = "TestHTMLMail.html",
+            context     = { "message": request.POST["message"] }
+        )
 
         mail = ArtilleryMail(
-            to_email    = request.POST["mail_to"],         # To
+            to_email    = request.POST["mail_to"],        # To
             from_email  = "Artillery Mail Sender <web_devel@labbiness.com>", # From
-            reply_email = "web_devel@labbiness.com",       # Reply address
-            subject     =  request.POST["subject"],        # Email Subject
-            html        =  html_contents,                  # Email View Template
-            text        = request.POST["message"],         # Email Body
+            reply_email = "web_devel@labbiness.com",      # Reply address
+            subject     = request.POST["subject"],        # Email Subject
+            html        = html_contents,                  # Email View Template
+            text        = request.POST["message"],        # Email Body
         )
 
         mail.send()
     
 
-        context = {
-            "smtp_host": settings.EMAIL_HOST,
-            "smtp_port": settings.EMAIL_PORT,
-            "smtp_user": settings.EMAIL_HOST_USER,
-            "mail_result": result,
-        }
+        context = { "mail_result": result }
 
         return render(request, 'DebugSendTemplate.html', context)

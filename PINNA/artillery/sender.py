@@ -81,7 +81,7 @@ class ArtilleryMail():
 
 
     @staticmethod
-    def render(template, context = None):
+    def renderHTML(template, context = None):
         return render_to_string(template, context)
 
 
