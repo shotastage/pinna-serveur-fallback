@@ -22,7 +22,7 @@ https://hplab.work/pinna-music/pinna-serveur/blob/master/LICENSE
             Result: <span style="color:red;">{{ mail_result }}</span>
         </p>
 
-        <form action="/api/mail/sendmail/ondebug/" method="post">{% csrf_token %}
+        <form action="/mail/sendmail/ondebug/" method="post">{% csrf_token %}
             <div>
                 <label for="mail">To:</label>
                 <input type="email" name="mail_to">

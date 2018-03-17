@@ -11,5 +11,13 @@ https://github.com/shotastage/pinna-music/blob/master/LICENSE
 """
 
 from django.db import models
+from django.utils import timezone
+from uuid import uuid4
 
-# Create your models here.
+
+class OptimizationSchedule(models.Model):
+  scheduled_by      = models.CharField(max_length = 255)
+  optimization_id   = models.UUIDField(default = uuid4)
+  influencer        = models.CharField(max_length = 255)
+  finished          = models.BooleanField(default = False)
+  start_at          = models.DateTimeField(default = timezone.now)

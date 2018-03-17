@@ -19,7 +19,7 @@ from rest_framework.views import status
 
 def allow(setting):
     """
-    Decorator for forbid to access without permission of setting
+    Decorator for forbid to access without permission of setting.
     """
 
     def _allow(func):
@@ -34,7 +34,7 @@ def allow(setting):
 
 def debug(func):
     """
-    Decorator for forbid to access without
+    Decorator for forbid to access without debugging.
     """
 
     @functools.wraps(func)

@@ -11,5 +11,12 @@ https://github.com/shotastage/pinna-music/blob/master/LICENSE
 """
 
 from django.contrib import admin
+from .models import OptimizationSchedule
 
-# Register your models here.
+
+class OptimizationScheduleAdmin(admin.ModelAdmin):
+    readonly_fields = (
+        "optimization_id",
+    )
+
+admin.site.register(OptimizationSchedule, OptimizationScheduleAdmin)

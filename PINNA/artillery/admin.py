@@ -13,5 +13,22 @@ https://hplab.work/pinna-music/pinna-serveur/blob/master/LICENSE
 from django.contrib import admin
 from .models import PendingMail, SentMail
 
+
+class SentMailAdmin(admin.ModelAdmin):
+    readonly_fields = (
+        "subject",
+        "body",
+        "contents_type",
+        "disp_name",
+        "from_email",
+        "to",
+        "bcc",
+        "reply_to",
+        "headers",
+        "created_on",
+        "result",
+    )
+
+
+admin.site.register(SentMail, SentMailAdmin)
 admin.site.register(PendingMail)
-admin.site.register(SentMail)

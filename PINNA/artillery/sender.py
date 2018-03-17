@@ -16,6 +16,7 @@ from django.core.mail import EmailMessage, send_mail
 from django.http import HttpResponse, HttpResponseRedirect
 from uuid import uuid4
 from enum import Enum
+from .models import SentMail
 
 
 
@@ -54,7 +55,21 @@ class ArtilleryMail():
             headers     = {'Message-ID': self._id},
         )
 
+        
         email.send(fail_silently = False)
+        
+
+        maillog = SentMail(
+            subject = self._subject,
+            body = self._template,
+            contents_type = 0,
+            from_email = self._from,
+            to = self._to,
+            reply_to = self._reply,
+            mailid = self._id,
+        )
+
+        maillog.save()
 
         return (self._id, self._result)
 
