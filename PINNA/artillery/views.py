@@ -10,7 +10,7 @@ This software is released under the terms of restricted, see LICENSE for detail.
 https://hplab.work/pinna-music/pinna-serveur/blob/master/LICENSE
 """
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.conf import settings
 from django.views import View
 from rest_framework.views import APIView
@@ -49,12 +49,15 @@ class DebugMailSendView(View):
 
         result = "Succeeded"
 
+        html_contents = ArtilleryMail.render("TestHTMLMail.html", context = { "message": request.POST["message"] })
+
         mail = ArtilleryMail(
-            request.POST["mail_to"],         # To
-            "Artillery Mail Sender <web_devel@labbiness.com>",       # From
-            "web_devel@labbiness.com",       # Reply address
-            request.POST["subject"],         # Email Subject
-            request.POST["message"],         # Email View Template
+            to_email    = request.POST["mail_to"],         # To
+            from_email  = "Artillery Mail Sender <web_devel@labbiness.com>", # From
+            reply_email = "web_devel@labbiness.com",       # Reply address
+            subject     =  request.POST["subject"],        # Email Subject
+            html        =  html_contents,                  # Email View Template
+            text        = request.POST["message"],         # Email Body
         )
 
         mail.send()

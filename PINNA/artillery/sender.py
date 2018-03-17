@@ -10,9 +10,8 @@ This software is released under the terms of restricted, see LICENSE for detail.
 https://hplab.work/pinna-music/pinna-serveur/blob/master/LICENSE
 """
 
-from django.template.loader import get_template
-from django.template import Context
-from django.core.mail import EmailMessage, send_mail
+from django.template.loader import render_to_string
+from django.core.mail import EmailMessage, EmailMultiAlternatives
 from django.http import HttpResponse, HttpResponseRedirect
 from uuid import uuid4
 from enum import Enum
@@ -33,10 +32,9 @@ class ArtilleryMail():
         - mail_id           Mail ID ( UUID )
     """
 
-    def __init__(self, to_email, from_email, reply_email, subject, template, mail_id = None):
+    def __init__(self, to_email, from_email, reply_email, subject, html, text, mail_id = None):
         self._to, self._from, self._reply = to_email, from_email, reply_email
-        self._subject = subject
-        self._template = template
+        self._subject, self._html, self._text = subject, html, text
         self._id = mail_id
         self._result = ArtilleryShootResult.succeeded
 
@@ -45,9 +43,9 @@ class ArtilleryMail():
 
     def send(self):
 
-        email = EmailMessage(
+        mail = EmailMultiAlternatives(
             subject     = self._subject,
-            body        = self._template,
+            body        = self._text,
             from_email  = self._from,
             to          = [self._to],
             bcc         = [],
@@ -55,23 +53,36 @@ class ArtilleryMail():
             headers     = {'Message-ID': self._id},
         )
 
+        # Attach HTML contents
+        if not self._html is None:
+            mail.attach_alternative(self._html, "text/html")
+            contents_type = 1
+        else:
+            contents_type = 0
         
-        email.send(fail_silently = False)
-        
+        # Send email
+        mail.send(fail_silently = False)
 
+        # Create Mail Log
         maillog = SentMail(
-            subject = self._subject,
-            body = self._template,
-            contents_type = 0,
-            from_email = self._from,
-            to = self._to,
-            reply_to = self._reply,
-            mailid = self._id,
+            subject         = self._subject,
+            body            = self._text,
+            contents_type   = contents_type,            
+            from_email      = self._from,
+            to              = self._to,
+            reply_to        = self._reply,
+            mailid          = self._id,
         )
 
+        # Save mail log
         maillog.save()
 
         return (self._id, self._result)
+
+
+    @staticmethod
+    def render(template, context = None):
+        return render_to_string(template, context)
 
 
 
