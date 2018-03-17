@@ -15,6 +15,6 @@ from artillery.views import MailSendView, DebugMailSendView
 
 
 urlpatterns = [
-    path('sendmail', MailSendView.as_view(), name='starts'),
-    path('sendmail/ondebug/', DebugMailSendView.as_view()),
+    path('sendmail', MailSendView.as_view(), name='send mail'),
+    path('sendmail/ondebug/', DebugMailSendView.as_view(), name='send mail on debug'),
 ]

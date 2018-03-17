@@ -47,3 +47,13 @@ CACHES = {
         'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
     }
 }
+
+
+# Django Email Settings
+# https://docs.djangoproject.com/en/2.0/topics/email/#obtaining-an-instance-of-an-email-backend
+
+EMAIL_HOST = 'smtp.happinesslab.conoha.io'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = "web_devel@labbiness.com"
+EMAIL_HOST_PASSWORD = "z7rA62zDrKyqxrBpvfjQyg"
+EMAIL_USE_TLS = True
