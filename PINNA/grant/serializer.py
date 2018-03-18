@@ -20,6 +20,7 @@ from .models import (DeviceCredential,)
 
 
 class UserSerializer(serializers.ModelSerializer):
+
     email = serializers.EmailField(
         required = True,
         validators = [UniqueValidator(queryset = User.objects.all())]
@@ -29,23 +30,39 @@ class UserSerializer(serializers.ModelSerializer):
     )
     password = serializers.CharField(min_length = 8)
 
+
     def create(self, validated_data):
 
         # Registar user account without activation
-        user = User.objects.create_user(validated_data["username"], validated_data["email"],
-             validated_data["password"])
+        user = User.objects.create_user(
+            validated_data["username"], validated_data["email"], validated_data["password"])
         user.is_active = False
         user.save()
 
         # Send registration verification
-        mail = ArtilleryMail([validated_data["email"]], "admin@labbiness.com", "Account registration verification", "text")
+        html_contents = ArtilleryMail.renderHTML(
+            template    = "build/mail/auth_verification.html",
+            context     = { "message": "MESSAGE" }
+        )
+
+        mail = ArtilleryMail(
+            to_email    = validated_data["email"],
+            from_email  = "Artillery Mail Sender <web_devel@labbiness.com>",
+            reply_email = "web_devel@labbiness.com",
+            subject     = "Registration Confirmation",
+            html        = html_contents,
+            text        = "MESSAGE",
+        )
+
         mail.send()
     
         return user
 
+
     class Meta:
         model = User
         fields = ('id', 'username', 'email', 'password')
+
 
 
 class DeviceCredentialSerializer(serializers.ModelSerializer):

@@ -27,7 +27,7 @@ urlpatterns = [
     # Routings for JWT auth
     path("jwt/create/", TokenObtainPairView.as_view(), name = 'jwt-create'),
     path("jwt/refresh/", TokenRefreshView.as_view(), name = 'jwt-refresh'),
-    path("jwt/verify/", TokenVerifyView.as_view(), name = 'token_verify'),
+    path("jwt/verify/", TokenVerifyView.as_view(), name = 'token-verify'),
 
     # Routings for DCA (Device Credential Auth)
     path("dca/create/", DeviceCredentialCreateView.as_view(), name = 'jwt-create'),
