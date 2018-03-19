@@ -14,6 +14,16 @@ PINNA is global music mapping application or integrated musicological analysis p
 PINNA is composed on many advanced technologies such as Django, Kurbonates.
 These technologies enables more efficient development and creating scalable production environments to us. We adopt any technologies even if it doesn’t get enough stability to make it stable if it has adequate adoption example.
 
+# 🔗  Requirements
+
+## Python 3.6+
+
+PINNA is currently written in Python 3.6.4 and it is used new introduced programming language function such as **secrets** or **Type Hints**. Thus, we have to follow the version which has that introduction.
+
+## Java8+
+
+PINNA has been introduced some high performance distributed data management system. For instance, Elasticsearch and Apache Spark, Hadoop is that itself. These products is composed on Java VM platform so that we have to setup Java language environment in advance.
+
 # 🔥  Issue
 
 If you find any issues related to this software, please report it in detail.
