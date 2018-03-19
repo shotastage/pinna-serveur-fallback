@@ -11,8 +11,8 @@ https://hplab.work/pinna-music/pinna-serveur/blob/master/LICENSE
 """
 
 # Enable E-mail sending API entrypoint
-ALLOW_SENDING_EMAIL_VIA_API = False
+ARTILLERY_ENABLE_MAIL_API = False
 
 # Email Settings for debugging view
-MAIL_SENDER_DEBUG = "Artillery Mail Sender <web_devel@labbiness.com>"
-MAIL_SENDER_REPLY_DEBUG = "web_devel@labbiness.com"
+ARTILLERY_SENDER_DEBUG = "Artillery Mail Sender <web_devel@labbiness.com>"
+ARTILLERY_SENDER_REPLY_DEBUG = "web_devel@labbiness.com"

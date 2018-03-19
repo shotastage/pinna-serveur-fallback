@@ -28,6 +28,7 @@ flask = "*"
 pylint-django = "*"
 mkdocs-material = "*"
 django-mirage = "*"
+selenium = "*"
 
 
 [requires]

@@ -51,8 +51,8 @@ class DebugMailSendView(View):
 
         mail = ArtilleryMail(
             to_email    = request.POST["mail_to"],
-            from_email  = settings.MAIL_SENDER_DEBUG,
-            reply_email = settings.MAIL_SENDER_REPLY_DEBUG,
+            from_email  = settings.ARTILLERY_SENDER_DEBUG,
+            reply_email = settings.ARTILLERY_SENDER_REPLY_DEBUG,
             subject     = request.POST["subject"],
             html        = html_contents,                  # Email View Template
             text        = request.POST["message"],        # Email Body

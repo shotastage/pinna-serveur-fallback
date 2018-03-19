@@ -30,19 +30,19 @@ SECRET_KEY = 'qm@41&21a@)ly0i=xmd$g%c4%v8s$gdmw8+ismqi3je$)u#35+'
 DEBUG = False
 
 # Allowed hosts
-ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
+ALLOWED_HOSTS = ("*", "127.0.0.1", "localhost", )
 
 
 # Application definition
 
-INSTALLED_APPS = [
+INSTALLED_APPS = (
+
+    # Installed Applications
     'elasticsearch.apps.ElasticsearchConfig',
     'pvs.apps.PvsConfig',
     'pinlock.apps.PinlockConfig',
     'pinner.apps.PinnerConfig',
     'supervisor.apps.SupervisorConfig',
-
-    # Installed Applications
     'paydo.apps.PaydoConfig',
     'wavecloud.apps.WavecloudConfig',
     'pages.apps.PagesConfig',
@@ -67,12 +67,29 @@ INSTALLED_APPS = [
 
     # Django REST Framework
     'rest_framework',
-]
+
+    # WebSocket
+    'channels',
+)
+
+
+# Channel layer definitions
+# http://channels.readthedocs.io/en/latest/topics/channel_layers.html
+
+CHANNEL_LAYERS = {
+    "default": {
+        # This example app uses the Redis channel layer implementation channels_redis
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("127.0.0.1", 6379)],
+        },
+    },
+}
 
 
 # Middlewares
 
-MIDDLEWARE = [
+MIDDLEWARE = (
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -80,7 +97,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-]
+)
 
 
 # Django Rest Framework settings
@@ -112,7 +129,7 @@ CACHES = {
 
 ROOT_URLCONF = 'PINNA.urls'
 
-TEMPLATES = [
+TEMPLATES = (
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
@@ -128,7 +145,7 @@ TEMPLATES = [
             ],
         },
     },
-]
+)
 
 # WSGI Application Settings
 # https://docs.djangoproject.com/en/2.0/ref/settings/#wsgi-application
@@ -163,7 +180,7 @@ DATABASES = {
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
 
-AUTH_PASSWORD_VALIDATORS = [
+AUTH_PASSWORD_VALIDATORS = (
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
@@ -176,7 +193,7 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
-]
+)
 
 
 # Internationalization
@@ -201,9 +218,9 @@ STATIC_URL = '/contents/'
 
 STATIC_ROOT = os.path.join(PROJ_DIR, "collected")
 
-STATICFILES_DIRS = [
-    os.path.join(PROJ_DIR, "shell", "build")
-]
+STATICFILES_DIRS = (
+    os.path.join(PROJ_DIR, "shell", "build"),
+)
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
