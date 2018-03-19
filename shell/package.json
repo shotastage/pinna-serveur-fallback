@@ -59,10 +59,12 @@
     "@types/node": "^9.4.6",
     "@types/react": "^16.0.38",
     "@types/react-dom": "^16.0.4",
+    "api-designer": "^0.4.1",
     "node-sass": "^4.7.2",
     "pug": "^2.0.1",
     "pug-cli": "^1.0.0-alpha6",
     "pug-loader": "^2.3.0",
+    "raml2html": "^7.0.0",
     "typescript": "^2.7.1",
     "webpack-bundle-tracker": "^0.2.1"
   },
