@@ -32,7 +32,8 @@ class ArtilleryMail():
         - mail_id           Mail ID ( UUID )
     """
 
-    def __init__(self, to_email, from_email, reply_email, subject, html, text, mail_id = None):
+    def __init__(self, to_email: str, from_email: str,
+                 reply_email: str, subject: str, html: str, text: str, mail_id = None):
         self._to, self._from, self._reply = to_email, from_email, reply_email
         self._subject, self._html, self._text = subject, html, text
         self._id = mail_id
@@ -41,8 +42,10 @@ class ArtilleryMail():
         if self._id is None: self._id = uuid4()
 
 
-    def send(self):
-
+    def send(self) -> None:
+        """
+        Send E-mail using Django mail backend & register E-mail contents to database.
+        """
         mail = EmailMultiAlternatives(
             subject     = self._subject,
             body        = self._text,
@@ -81,12 +84,12 @@ class ArtilleryMail():
 
 
     @staticmethod
-    def renderHTML(template, context = None):
+    def renderHTML(template, context = None) -> str:
         return render_to_string(template, context)
 
 
 
-class ArtilleryMassMails():
+class ArtilleryMassMails(ArtilleryMail):
     """
     Mail Creation Class which is only for a single sending target
 
@@ -99,17 +102,14 @@ class ArtilleryMassMails():
         - mail_id           Mail ID ( UUID )
     """
     
-    def __init__(self, to_emails, from_email, reply_email, subject, template, mail_id = None):
+    def __init__(self, to_emails: list, from_email: str, reply_email: str, subject: str, template: str, mail_id = None):
         self._to, self._from, self._reply = to_emails, from_email, reply_email
         self._subject = subject
         self._template = template
-        self._id = mail_id
         self._result = ArtilleryShootResult.succeeded
 
-        if self._id is None: self._id = uuid4()        
 
-
-    def send(self):
+    def send(self) -> None:
 
         email = EmailMessage(
             subject     = self._subject,
