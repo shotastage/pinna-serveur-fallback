@@ -1,4 +1,5 @@
 """
+    'aica.apps.AicaConfig',
     'graphqlorm.apps.GraphqlormConfig',
     'elasticorm.apps.ElasticormConfig',
 PINNA
