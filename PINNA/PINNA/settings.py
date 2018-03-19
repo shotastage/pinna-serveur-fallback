@@ -13,6 +13,7 @@ https://github.com/shotastage/pinna-music/blob/master/LICENSE
 import os, sys
 from pathlib import Path, PurePath
 from .environment.base import *
+from .configurations import *
 
 
 try:

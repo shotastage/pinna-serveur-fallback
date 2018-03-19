@@ -10,9 +10,8 @@ This software is released under the terms of RESTRICTED, see LICENSE for detail.
 https://github.com/shotastage/pinna-music/blob/master/LICENSE
 """
 
-MUSICKIT = {
-    "SECERET": """
-""",
+MUSICKIT_SETTINGS = {
+    "SECERET": "",
     "keyId": "9876543210",
     "teamId":"0123456789"
 }

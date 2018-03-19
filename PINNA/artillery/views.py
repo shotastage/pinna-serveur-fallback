@@ -50,10 +50,10 @@ class DebugMailSendView(View):
         )
 
         mail = ArtilleryMail(
-            to_email    = request.POST["mail_to"],        # To
-            from_email  = "Artillery Mail Sender <web_devel@labbiness.com>", # From
-            reply_email = "web_devel@labbiness.com",      # Reply address
-            subject     = request.POST["subject"],        # Email Subject
+            to_email    = request.POST["mail_to"],
+            from_email  = settings.MAIL_SENDER_DEBUG,
+            reply_email = settings.MAIL_SENDER_REPLY_DEBUG,
+            subject     = request.POST["subject"],
             html        = html_contents,                  # Email View Template
             text        = request.POST["message"],        # Email Body
         )
