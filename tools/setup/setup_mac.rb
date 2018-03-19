@@ -72,8 +72,6 @@ end
 
 class PyenvRelated
 
-    is_failed = true
-
     def initialize
         @instllation = false
 
@@ -162,7 +160,40 @@ end
 class ElasticsearchRelated
 
     def initialize
-        puts "Hello"
+
+        @java_installation = false
+
+        check_java()
+        setup_java()
+        install_elasticsearch_products()
+    end
+
+    def check_java
+        global = `java -version`
+        if global.include?("9.0") then
+            puts "Java is already installed."
+            @java_installation = true
+        end
+    end
+
+    def setup_java
+        puts "Checking Java installation..."
+
+        unless @java_installation then
+            puts "Java Installation is not found!"
+            #exit!
+        end
+    end
+
+    def install_elasticsearch_products
+        puts "Installing Elasticsearch..."
+        system("brew install elasticsearch")
+        puts "Installing Kibana..."
+        system("brew install kibana")
+        puts "Installing logstash..."
+        system("brew install logstash")
+        # puts "Installing Beats..."
+        # system("brew install beats")
     end
 
 end

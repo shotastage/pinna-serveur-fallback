@@ -10,9 +10,10 @@ This software is released under the terms of restricted, see LICENSE for detail.
 https://hplab.work/pinna-music/pinna-serveur/blob/master/LICENSE
 """
 
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from django.conf import settings
 from django.views import View
+from django.utils.functional import cached_property
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from core.functional import debug
@@ -32,7 +33,8 @@ class MailSendView(APIView):
 class DebugMailSendView(View):
     
     @debug
-    def get(self, request):
+    @cached_property
+    def get(self, request) -> HttpResponse:
         
         context = { "mail_result": "Not sent" }
 
@@ -40,7 +42,7 @@ class DebugMailSendView(View):
 
 
     @debug
-    def post(self, request):
+    def post(self, request) -> HttpResponse:
 
         result = "Succeeded"
 
