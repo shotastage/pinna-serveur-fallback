@@ -1,4 +1,5 @@
 """
+    'elasticorm.apps.ElasticormConfig',
 PINNA
 base.py
 
@@ -38,7 +39,7 @@ ALLOWED_HOSTS = ("*", "127.0.0.1", "localhost", )
 INSTALLED_APPS = (
 
     # Installed Applications
-    'elasticsearch.apps.ElasticsearchConfig',
+    'elasticorm.apps.ElasticormConfig',
     'pvs.apps.PvsConfig',
     'pinlock.apps.PinlockConfig',
     'pinner.apps.PinnerConfig',

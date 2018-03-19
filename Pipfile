@@ -17,6 +17,7 @@ whitenoise = "*"
 coreapi = "*"
 "apns2" = "*"
 channels = "*"
+elasticsearch = "*"
 
 
 [dev-packages]
