@@ -1,4 +1,5 @@
 """
+    'graphqlorm.apps.GraphqlormConfig',
     'elasticorm.apps.ElasticormConfig',
 PINNA
 base.py

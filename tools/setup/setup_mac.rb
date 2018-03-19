@@ -158,6 +158,16 @@ class PostgreAPP
 end
 
 
+
+class ElasticsearchRelated
+
+    def initialize
+        puts "Hello"
+    end
+
+end
+
+
 def main
 
     puts "PINNA Devel Setup for macOS"
@@ -176,6 +186,7 @@ def main
     HomebrewRelated.new
     PyenvRelated.new
     PostgreAPP.new
+    ElasticsearchRelated.new
 end
 
 # Excute main
