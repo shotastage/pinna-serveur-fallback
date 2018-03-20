@@ -11,9 +11,9 @@ https://hplab.work/pinna-music/pinna-serveur/blob/master/LICENSE
 """
 
 from mirage import system as mys
-from mirage.miragefile import Category, Detail, Config
+from mirage.miragefile.conf import Category, Detail, Config
 from mirage.confscript import ConfigScript
-from mirage.confscript import Settings
+from mirage.confscript.settings import Settings
 
 
 MIRAGE_CONFIG_SCRIPT_VERSION = "0.0.1"
@@ -27,7 +27,7 @@ class MirageConfig(ConfigScript):
         "VERSION": "0.0.1",
         "AUTHOR": "Shota Shimazu <hornet.live.mf@gmail.com>",
         "GIT_URL": "git@hplab.work:pinna-music/pinna-music.git",
-        "LICENSE": Settings.license.original,
+        "LICENSE": Settings.License.original,
         "DESCRIPTION": "MUSIC ON THE MAP!",
     }
 

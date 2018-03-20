@@ -18,7 +18,7 @@ before:
 #######
 
 pyclean:
-	find ./mirage -name '*.pyc' -delete -not -path './mirage/scaffold/static/'
+	find ./PINNA -name '*.pyc' -delete -not -path './mirage/scaffold/static/'
 
 requirement:
 	@echo "Generating locked.txt ..."

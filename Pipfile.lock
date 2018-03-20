@@ -446,10 +446,10 @@
         },
         "django-mirage": {
             "hashes": [
-                "sha256:097e9899903ea3e287f568b9448fb710148b85c032161355615c1c1018b2490d"
+                "sha256:b76aae67e6b2b5e2360934d26a47750507f5c9165ac7616f8866b18e2c58a4cf"
             ],
             "index": "pypi",
-            "version": "==0.0.28"
+            "version": "==0.1.1"
         },
         "flask": {
             "hashes": [

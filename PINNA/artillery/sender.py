@@ -37,7 +37,7 @@ class ArtilleryMail():
         self._to, self._from, self._reply = to_email, from_email, reply_email
         self._subject, self._html, self._text = subject, html, text
         self._id = mail_id
-        self._result = ArtilleryShootResult.succeeded
+        self._result = ShootResult.succeeded
 
         if self._id is None: self._id = uuid4()
 
@@ -94,7 +94,7 @@ class ArtilleryMassMails(ArtilleryMail):
     Mail Creation Class which is only for a single sending target
 
     Init:
-        - to_emails         Email TO
+        - to_emails         Email To
         - from_email        From email
         - reply_email       Reply email
         - subject           Mail subject
@@ -102,30 +102,58 @@ class ArtilleryMassMails(ArtilleryMail):
         - mail_id           Mail ID ( UUID )
     """
     
-    def __init__(self, to_emails: list, from_email: str, reply_email: str, subject: str, template: str, mail_id = None):
+    def __init__(self, to_emails: list, from_email: str,
+                 reply_email: str, subject: str, html: str, text: str, mail_id = None):
         self._to, self._from, self._reply = to_emails, from_email, reply_email
-        self._subject = subject
-        self._template = template
-        self._result = ArtilleryShootResult.succeeded
+        self._subject, self._html, self._text = subject, html, text
+        self._id = mail_id
+        self._result = ShootResult.succeeded
+
+        if self._id is None: self._id = uuid4()
 
 
     def send(self) -> None:
-
-        email = EmailMessage(
+        """
+        Send E-mail using Django mail backend & register E-mail contents to database.
+        """
+        mail = EmailMultiAlternatives(
             subject     = self._subject,
-            body        = self._template,
+            body        = self._text,
             from_email  = self._from,
-            to          = [self._reply],    # Reply address instead of To addresses
-            bcc         = [self._to],       # To addresses instead of BCC
+            to          = [self._reply],
+            bcc         = self._to,
             reply_to    = [self._reply],
             headers     = {'Message-ID': self._id},
         )
 
-        email.send(fail_silently = False)
+        # Attach HTML contents
+        if not self._html is None:
+            mail.attach_alternative(self._html, "text/html")
+            contents_type = 1
+        else:
+            contents_type = 0
+        
+        # Send email
+        mail.send(fail_silently = False)
+
+        # Create Mail Log
+        maillog = SentMail(
+            subject         = self._subject,
+            body            = self._text,
+            contents_type   = contents_type,            
+            from_email      = self._from,
+            to              = self._to,
+            reply_to        = self._reply,
+            mailid          = self._id,
+        )
+
+        # Save mail log
+        maillog.save()
 
         return (self._id, self._result)
 
 
-class ArtilleryShootResult(Enum):
+
+class ShootResult(Enum):
     succeeded = 0
     failed = 1
