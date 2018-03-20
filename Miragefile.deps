@@ -1,0 +1,9 @@
+@miragedeps 0.0.5
+
+@define Dependencies begin
+    Python = "3.6.4"
+    Rust = "1.24.1"
+    elasticsearch = "6.2.2"
+    kibana = "6.2.2"
+    logstash = "6.2.2"
+@end
