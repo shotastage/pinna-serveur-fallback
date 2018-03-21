@@ -1,12 +1,9 @@
 [[source]]
-
 url = "https://pypi.python.org/simple"
 verify_ssl = true
 name = "pypi"
 
-
 [packages]
-
 django = "*"
 djangorestframework = "*"
 djangorestframework-simplejwt = "*"
@@ -19,19 +16,15 @@ coreapi = "*"
 channels = "*"
 elasticsearch = "*"
 
-
 [dev-packages]
-
 pylint = "*"
 "pep8" = "*"
 mkdocs = "*"
 flask = "*"
 pylint-django = "*"
 mkdocs-material = "*"
-django-mirage = "*"
 selenium = "*"
-
+django-mirage = "*"
 
 [requires]
-
 python_version = "3.6"

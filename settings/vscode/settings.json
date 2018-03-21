@@ -7,5 +7,9 @@
     "python.linting.pylintArgs": [
         "--load-plugins=pylint_django"
     ],
-    "git.ignoreLimitWarning": true
+    "git.ignoreLimitWarning": true,
+    "editor.renderIndentGuides": true,
+    "editor.rulers": [80, 100],
+    "files.insertFinalNewline": true,
+    "editor.renderWhitespace": "all"
 }
