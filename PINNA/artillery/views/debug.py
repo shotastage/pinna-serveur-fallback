@@ -1,8 +1,8 @@
 """
 PINNA
-views.py
+debug.py
 
-Created by Shota Shimazu on 2018/03/11
+Created by Shota Shimazu on 2018/03/22
 
 Copyright (c) 2018 Shota Shimazu All Rights Reserved.
 
@@ -17,17 +17,8 @@ from django.utils.functional import cached_property
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from core.functional import debug
-from .sender import ArtilleryMail, ArtilleryMassMails
+from ..sender import ArtilleryMail, ArtilleryMassMails
 
-
-
-class MailSendView(APIView):
-    
-    def post(self, request):
-        pass
-
-    def get(self, request):
-        pass
 
 
 class DebugMailSendView(View):
