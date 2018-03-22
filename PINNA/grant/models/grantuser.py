@@ -73,34 +73,6 @@ class GrantUser(models.Model):
     self.account_secret = token_urlsafe(64)
 
 
-class DeviceCredential(models.Model):
-  """
-  ID                    device unique UUID
-  credential            URL-safe 64 bit token
-  device_name           Device name (e.g, SHOTA's iPhone7)
-  useragent             Useragent like browser (e.g. Macintosh; Intel Mac OS X 10_13_3 Web/3.1)
-  is_revoked            Boolean value whether the token is revoked or not
-  """
-
-  id            = models.UUIDField(primary_key = True, default = uuid4)
-  credential    = models.CharField(max_length = 255)
-  device_name   = models.CharField(max_length = 255)
-  useragent     = models.CharField(max_length = 255)
-  is_revoked    = models.BooleanField(default = False)
-
-
-  def create(self):
-    self.credential = token_hex(32)
-
-  def update(self):
-    self.create()
-
-  def certificate(self, credential):
-    return compare_digest(credential, self.credential)
-
-  def revoke(self):
-    self.is_revoked = True
-
 
 class SignupVerification(models.Model):
   """
@@ -127,7 +99,7 @@ class OneTapLogin(models.Model):
   is_revoked            Boolean value whether the verification code is revoked or not
   created_on            Date & time of one tap session
   """
-  
+
   token       = models.CharField(max_length = 255)
   is_tapped   = models.BooleanField(default = False)
   is_revoked  = models.BooleanField(default = False)

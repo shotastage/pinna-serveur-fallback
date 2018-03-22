@@ -16,14 +16,13 @@ from rest_framework import authentication, permissions, generics
 from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .serializer import UserSerializer
-from .models import (SignupVerification, DeviceCredential)
-
+from ..serializer import UserSerializer
+from ..models import (SignupVerification, DeviceCredential)
 
 
 
 class SignupView(APIView):
-    
+
     permission_classes = (permissions.AllowAny,)
     serializer_class   = UserSerializer
 
@@ -99,7 +98,7 @@ class SignupUIView(View):
 class SiginUIView(View):
 
     def get(self, request):
-        pass 
-    
+        pass
+
     def post(self, request):
         return Response(status = status.HTTP_405_METHOD_NOT_ALLOWED)
