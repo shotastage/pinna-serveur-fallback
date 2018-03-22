@@ -38,6 +38,7 @@ ALLOWED_HOSTS = ("*", "127.0.0.1", "localhost", )
 INSTALLED_APPS = (
 
     # Installed Applications
+    'pintraffic.apps.PintrafficConfig',
     'aica.apps.AicaConfig',
     'graphqlorm.apps.GraphqlormConfig',
     'elasticorm.apps.ElasticormConfig',
