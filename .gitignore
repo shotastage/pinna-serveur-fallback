@@ -235,3 +235,5 @@ tools/doc_server/templates/
 
 # Collect statics
 collected/
+
+tmp/

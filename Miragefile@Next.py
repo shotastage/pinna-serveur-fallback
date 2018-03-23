@@ -11,6 +11,7 @@ https://hplab.work/pinna-music/pinna-serveur/blob/master/LICENSE
 """
 
 from mirage import system as mys
+from mirage.core import Void
 from mirage.miragefile.conf import Category, Detail, Config
 from mirage.confscript import ConfigScript
 from mirage.confscript.settings import Settings
@@ -53,15 +54,17 @@ class MirageConfig(ConfigScript):
     }
 
 
- 
-    def initialize(self) -> None:
+
+    def initialize(self) -> Void:
         mys.log("PINNA Setting Script V0.0.1")
 
-    
-    def main(self):
+
+    def main(self) -> int:
         self.register_custom_command("raml-ide", None, "tools/scripts/mirage_raml.py")
         self.register_custom_command_with_runtime("clean:mac", "tools/setup/clean-mac.rb", "ruby")
 
+        return 0
 
-    def deinitialize(self) -> None:
+
+    def deinitialize(self) -> Void:
         mys.log("Bye : )")
