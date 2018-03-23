@@ -14,5 +14,5 @@ from django.urls import path
 from pages.views import Landings
 
 urlpatterns = [
-    path("", Landings.as_view(), name='landing'),
+    path('', Landings.as_view(), name='landing'),
 ]

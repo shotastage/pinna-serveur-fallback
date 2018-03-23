@@ -24,8 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     # Routing for web UI
-    path("", generic.RedirectView.as_view(url = '/pages/', permanent = False)),
-    path("pages/", include('pages.urls')),
+    path("", include('pages.urls')),
 
     # Routing for Authentication
     path("api/", get_schema_view()),
