@@ -1,8 +1,8 @@
 /*
 PINNA
-mail.scss
+_contents.scss
 
-Created by Shota Shimazu on 2018/03/11
+Created by Shota Shimazu on 2018/03/25
 
 Copyright (c) 2018 Shota Shimazu All Rights Reserved.
 
@@ -10,8 +10,6 @@ This software is released under the terms of restricted, see LICENSE for detail.
 https://hplab.work/pinna-music/pinna-serveur/blob/master/LICENSE
 */
 
-@charset "utf-8";
-@import "vendors/normalize";
-@import "vendors/twbs/twbs-grid";
-@import "components/header";
-@import "components/contents";
+.contents, .footer {
+    font-family: Arial, Helvetica, sans-serif;
+}
