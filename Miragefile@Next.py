@@ -10,9 +10,8 @@ This software is released under the terms of restricted, see LICENSE for detail.
 https://hplab.work/pinna-music/pinna-serveur/blob/master/LICENSE
 """
 
-from mirage import system as mys
 from mirage.core import Void
-from mirage.miragefile.conf import Category, Detail, Config
+from mirage import system as mys
 from mirage.confscript import ConfigScript
 from mirage.confscript.settings import Settings
 
@@ -48,8 +47,7 @@ class MirageConfig(ConfigScript):
     COPYRIGHT = {
         "start_year": 2018,
         "copyrightors": [
-            "Shota Shimazu",
-            Config.get(Category.private_profiles, Detail.private_name),
+            "Shota Shimazu"
         ]
     }
 
