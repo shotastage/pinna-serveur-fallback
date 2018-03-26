@@ -4,7 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-django = "*"
+Django = "*"
 djangorestframework = "*"
 djangorestframework-simplejwt = "*"
 django-filter = "*"
@@ -20,7 +20,7 @@ elasticsearch = "*"
 pylint = "*"
 "pep8" = "*"
 mkdocs = "*"
-flask = "*"
+Flask = "*"
 pylint-django = "*"
 mkdocs-material = "*"
 selenium = "*"
