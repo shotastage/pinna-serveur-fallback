@@ -5,6 +5,8 @@
 [![pipeline status](https://hplab.work/pinna-music/pinna-music/badges/master/pipeline.svg)](https://git.hplab.work/pinna-music/pinna-music/commits/master)
 [![coverage report](https://hplab.work/pinna-music/pinna-music/badges/master/coverage.svg)](https://git.hplab.work/pinna-music/pinna-music/commits/master)
 
+**[This project is very similar to streetstory-serveur.](https://git.hplab.work/StreetStory/streetstory-serveur)**
+
 PINNA is global music mapping application or integrated musicological analysis platform mode with Django on Python. It provides sophisticated UI and efficient colossal data management for musicological analysis. It includes a set of experimental tools for solving issues that current music have and evolving music itself.
 
 
