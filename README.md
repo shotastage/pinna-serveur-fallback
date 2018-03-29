@@ -10,6 +10,11 @@
 PINNA is global music mapping application or integrated musicological analysis platform mode with Django on Python. It provides sophisticated UI and efficient colossal data management for musicological analysis. It includes a set of experimental tools for solving issues that current music have and evolving music itself.
 
 
+# AICA Voice Kit Service
+
+AICA is initially introduced on 2018/1. It is voice UI platform that provides musical synth or wave analysis features for smart speaker that is specialized for musicians.  
+PINNA includes this service and provides basic feature such as judging chord and automatic memorizing notes.
+
 # 🎸  Technologies
 ![Technologies](./docs/assets/technologies.png)
 
