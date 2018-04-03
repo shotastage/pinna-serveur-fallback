@@ -8,7 +8,7 @@
         "version": "0.0.1",
         "author": "Shota Shimazu <hornet.live.mf@gmail.com>",
         "git": "git@hplab.work:pinna-music/pinna-music.git",
-        "license": "restricted",
+        "license": "PINNA & StreetStory Cloud System License",
         "description": "MUSIC ON THE MAP!",
 
         "django": {
