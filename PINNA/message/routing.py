@@ -1,10 +1,9 @@
 """
-StreetStory Serveur
+PINNA Serveur
 routing.py
 
 Created by Shota Shimazu on 2018/03/04
 
-Copyright (c) 2018 Labbiness, Inc All Rights Reserved.
 Copyright (c) 2018 Shota Shimazu All Rights Reserved.
 
 This software is released under the terms of StreetStory Cloud System License, see LICENSE for detail.

@@ -55,7 +55,7 @@ class UserSerializer(serializers.ModelSerializer):
         )
 
         mail.send()
-    
+
         return user
 
 

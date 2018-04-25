@@ -24,7 +24,7 @@ class MailSenderTests(TestCase):
         #Clean up run after every test method.
         pass
 
-    
+
     def single_mail_send(self):
 
         mail = ArtilleryMail(
@@ -40,7 +40,7 @@ class MailSenderTests(TestCase):
 
 
     def mass_mail_send(self):
-        
+
         mail = ArtilleryMassMails(
             ["pinner1@pinna.ml", "pinner2@pinna.ml", "pinner3@pinna.ml"], # To
             "web_devel@labbiness.com",          # From
