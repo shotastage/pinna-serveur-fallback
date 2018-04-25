@@ -24,7 +24,7 @@ class ArtilleryMail():
     Mail Creation Class which is only for a single sending target
 
     Init:
-        - to_email          Email TO
+        - to_email          Email To
         - from_email        From email
         - reply_email       Reply email
         - subject           Mail subject
@@ -32,8 +32,8 @@ class ArtilleryMail():
         - mail_id           Mail ID ( UUID )
     """
 
-    def __init__(self, to_email: str, from_email: str,
-                 reply_email: str, subject: str, html: str, text: str, mail_id = None):
+    def __init__(self, to_email: str, from_email: str, reply_email: str,
+                            subject: str, html: str, text: str, mail_id = None):
         self._to, self._from, self._reply = to_email, from_email, reply_email
         self._subject, self._html, self._text = subject, html, text
         self._id = mail_id
@@ -62,7 +62,7 @@ class ArtilleryMail():
             contents_type = 1
         else:
             contents_type = 0
-        
+
         # Send email
         mail.send(fail_silently = False)
 
@@ -70,7 +70,7 @@ class ArtilleryMail():
         maillog = SentMail(
             subject         = self._subject,
             body            = self._text,
-            contents_type   = contents_type,            
+            contents_type   = contents_type,
             from_email      = self._from,
             to              = self._to,
             reply_to        = self._reply,
@@ -101,9 +101,9 @@ class ArtilleryMassMails(ArtilleryMail):
         - template          Template path
         - mail_id           Mail ID ( UUID )
     """
-    
-    def __init__(self, to_emails: list, from_email: str,
-                 reply_email: str, subject: str, html: str, text: str, mail_id = None):
+
+    def __init__(self, to_emails: list, from_email: str, reply_email: str,
+                            subject: str, html: str, text: str, mail_id = None):
         self._to, self._from, self._reply = to_emails, from_email, reply_email
         self._subject, self._html, self._text = subject, html, text
         self._id = mail_id
@@ -132,7 +132,7 @@ class ArtilleryMassMails(ArtilleryMail):
             contents_type = 1
         else:
             contents_type = 0
-        
+
         # Send email
         mail.send(fail_silently = False)
 
@@ -140,7 +140,7 @@ class ArtilleryMassMails(ArtilleryMail):
         maillog = SentMail(
             subject         = self._subject,
             body            = self._text,
-            contents_type   = contents_type,            
+            contents_type   = contents_type,
             from_email      = self._from,
             to              = self._to,
             reply_to        = self._reply,
