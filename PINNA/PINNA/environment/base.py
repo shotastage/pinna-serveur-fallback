@@ -42,7 +42,7 @@ INSTALLED_APPS = (
     'aica.apps.AicaConfig',
     'graphqlorm.apps.GraphqlormConfig',
     'elasticorm.apps.ElasticormConfig',
-    'pvs.apps.PvsConfig',
+    'avs.apps.AvsConfig',
     'pinlock.apps.PinlockConfig',
     'pinner.apps.PinnerConfig',
     'supervisor.apps.SupervisorConfig',

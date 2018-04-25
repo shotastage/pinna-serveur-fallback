@@ -1,15 +1,15 @@
 """
 PINNA
-tests.py
+views.py
 
 Created by Shota Shimazu on 2018/03/16
 
 Copyright (c) 2018 Shota Shimazu All Rights Reserved.
 
 This software is released under the terms of restricted, see LICENSE for detail.
-https://hplab.work/pinna-music/pinna-serveur/blob/master/LICENSE
+https://bitbucket.org/mixstage/pinna-serveur/src/master/LICENSE
 """
 
-from django.test import TestCase
+from django.shortcuts import render
 
-# Create your tests here.
+# Create your views here.
