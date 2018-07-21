@@ -14,5 +14,5 @@ https://bitbucket.org/mixstage/pinna-serveur/src/master/LICENSE
 ARTILLERY_ENABLE_MAIL_API = False
 
 # Email Settings for debugging view
-ARTILLERY_SENDER_DEBUG = "Artillery Mail Sender <web_devel@labbiness.com>"
-ARTILLERY_SENDER_REPLY_DEBUG = "web_devel@labbiness.com"
+ARTILLERY_SENDER_DEBUG = "Artillery Mail Sender <web_devel@mixstage.tokyo>"
+ARTILLERY_SENDER_REPLY_DEBUG = "web_devel@mixstage.tokyo"

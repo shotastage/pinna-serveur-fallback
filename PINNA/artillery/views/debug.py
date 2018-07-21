@@ -1,13 +1,14 @@
 """
-PINNA
+Piu
 debug.py
 
 Created by Shota Shimazu on 2018/03/22
 
+Copyright (c) 2018 MiXSTAGE, Inc All Rights Reserved.
 Copyright (c) 2018 Shota Shimazu All Rights Reserved.
 
-This software is released under the terms of restricted, see LICENSE for detail.
-https://bitbucket.org/mixstage/pinna-serveur/src/master/LICENSE
+This software is released under the terms of PINNA & Piu Cloud System License, see LICENSE for detail.
+https://git.mixstage.tokyo/Piu/piu-serveur/blob/master/LICENSE
 """
 
 from django.shortcuts import render, redirect, HttpResponse
@@ -22,11 +23,10 @@ from ..sender import ArtilleryMail, ArtilleryMassMails
 
 
 class DebugMailSendView(View):
-    
+
     @debug
-    @cached_property
     def get(self, request) -> HttpResponse:
-        
+
         context = { "mail_result": "Not sent" }
 
         return render(request, 'DebugSendTemplate.html', context)
@@ -52,7 +52,7 @@ class DebugMailSendView(View):
         )
 
         mail.send()
-    
+
 
         context = { "mail_result": result }
 

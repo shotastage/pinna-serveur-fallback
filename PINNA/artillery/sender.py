@@ -7,7 +7,7 @@ Created by Shota Shimazu on 2018/03/13
 Copyright (c) 2018 Shota Shimazu All Rights Reserved.
 
 This software is released under the terms of restricted, see LICENSE for detail.
-https://bitbucket.org/mixstage/pinna-serveur/src/master/LICENSE
+https://git.mixstage.tokyo/Piu/piu-serveur/blob/master/LICENSE
 """
 
 from django.template.loader import render_to_string
@@ -32,11 +32,11 @@ class ArtilleryMail():
         - mail_id           Mail ID ( UUID )
     """
 
-    def __init__(self, to_email: str, from_email: str, reply_email: str,
-                            subject: str, html: str, text: str, mail_id = None):
-        self._to, self._from, self._reply = to_email, from_email, reply_email
-        self._subject, self._html, self._text = subject, html, text
-        self._id = mail_id
+    def __init__(self, to_email: str, from_email: str,
+                 reply_email: str, subject: str, html: str, text: str, mail_id = None):
+        self._to, self._from, self._reply      = to_email, from_email, reply_email
+        self._subject, self._html, self._text  = subject, html, text
+        self._id     = mail_id
         self._result = ShootResult.succeeded
 
         if self._id is None: self._id = uuid4()
@@ -102,8 +102,8 @@ class ArtilleryMassMails(ArtilleryMail):
         - mail_id           Mail ID ( UUID )
     """
 
-    def __init__(self, to_emails: list, from_email: str, reply_email: str,
-                            subject: str, html: str, text: str, mail_id = None):
+    def __init__(self, to_emails: list, from_email: str,
+                 reply_email: str, subject: str, html: str, text: str, mail_id = None):
         self._to, self._from, self._reply = to_emails, from_email, reply_email
         self._subject, self._html, self._text = subject, html, text
         self._id = mail_id
